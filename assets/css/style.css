@@ -1,0 +1,352 @@
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style: none;
+}
+a,
+img,
+span,
+input,
+button,
+ion-icon {
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    height: auto;
+}
+
+input,
+button {
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+}
+
+input {
+    width: 100%;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+ion-icon {
+    pointer-events: none;
+}
+
+address {
+    font-style: normal;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    color: rgb(9, 0, 233);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    overflow-y: overlay;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.container {
+    padding-inline: 16px;
+    display: flex;
+}
+
+.beside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.hover-1,
+.hover-2 {
+    transition: 0.25s ease;
+}
+
+.hover-1:is(:hover, :focus-visible) {
+    color: rgb(9, 0, 233);
+    transform: translateX(5px);
+}
+
+.hover-2:is(:hover, :focus-visible) {
+    color: hsla(199, 89%, 49%, 1);
+}
+
+.profile-card:is(:hover, :focus-visible) {
+    transition: 0.25s ease;
+    color: rgb(9, 0, 233);
+    transform: translateX(5px);
+    cursor: pointer;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-card .profile-banner {
+    border-radius: 50%;
+}
+
+.headline {
+    color: rgb(9, 0, 233);
+    line-height: 1.3;
+}
+
+.headline-2 {
+    font-size: 2.0rem;
+}
+
+.headline-3 {
+    font-size: 2.0rem;
+    line-height: 1.5;
+}
+
+.section-title {
+    margin-block-end: 10px;
+}
+
+.headline .span {
+    background-image: linear-gradient(90deg, #0900e9, #010101 75%);
+    display: flex;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 70px;
+    align-items: center;
+    justify-content: center;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-block: 24px;
+    background-color: #ffffff;
+    z-index: 4;
+}
+
+.header.active {
+    padding-block: 8px;
+    box-shadow: 0 8px 20px 0 hsla(0, 0%, 0%, 0.05);
+    border-block-end: 1px solid #ffffff;
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-open-btn,
+.nav-close-btn {
+    color: rgb(9, 0, 233);
+    font-size: 3.5rem;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    right: -340px;
+    max-width: 340px;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    padding: 30px;
+    z-index: 2;
+    overflow-y: auto;
+    visibility: hidden;
+    transition: 0.25s cubic-bezier(0.51, 0.03, 0.64, 0.28);
+}
+
+.navbar.active {
+    transform: translateX(-340px);
+    visibility: visible;
+    transition: 0.5s cubic-bezier(0.05, 0.83, 0.52, 0.97);
+}
+
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block-end: 15px;
+    margin-block-end: 15px;
+    border-block-end: 1px solid hsla(216, 33%, 20%, 1);
+}
+
+.navbar-list {
+    border-block-end: 1px solid hsla(0, 0%, 100%, 0.15);
+}
+
+.navbar-link {
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    padding-block: 10px;
+}
+
+.navbar-bottom {
+    padding-block: 30px 20px;
+    margin-block: 20px 25px;
+    border-block: 1px solid hsla(216, 33%, 20%, 1);
+}
+
+.navbar .profile-card {
+    margin-block: 15px;
+}
+
+.navbar .profile-card {
+    color: rgb(9, 0, 233);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.navbar .profile-card {
+    font-size: 1.3rem;
+}
+
+.navbar .link-list {
+    columns: 2;
+    -webkit-columns: 2;
+}
+
+.navbar-bottom-link {
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+    padding-block: 6px;
+}
+
+.copyright-text {
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+}
+
+.hero {
+    padding-block-start: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.hero .container {
+    display: grid;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.hero-content {
+    padding-top: 10px;
+    max-width: 50%;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.hero .section-title {
+    margin-block: 20px;
+}
+
+.hero .hero-text {
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    text-align: left;
+    line-height: 33px;
+    margin: 50px;
+}
+
+.hero-banner {
+    position: relative;
+    margin-top: 2em;
+}
+
+.hero-banner {
+  position: relative;
+  margin-top: 2em;
+  max-width: max-content;
+  margin-inline: auto;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+.hero-banner:hover {
+  transform: scale(1.3);
+}
+
+.fix-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.botao {
+    background-color: #0900E9;
+    background-size: 100%;
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.8s ease, box-shadow 0.9s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.botao:hover {
+    background-position: right;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+}
+.botao:focus-visible {
+    outline: none;
+    background-position: right;
+    background-color: #0900E9;
+}
