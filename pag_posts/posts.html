@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Simples</title>
+    <link rel="stylesheet" href="posts.css">
+</head>
+<body>
+    <header>
+        <h1>Posts</h1>
+    </header>
+
+    <main class="container">
+        <article class="post" data-post-id="1">
+            <h2>Welcome to my new world</h2>
+            <p class="date">Publicado em: 01/01/2024</p>
+            <img src="image1.jpg" alt="Descrição da imagem 1" class="post-image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+            <a href="#" class="read-more">Leia mais</a>
+        </article>
+
+        <article class="post" data-post-id="2">
+            <h2>Post 2</h2>
+            <p class="date">Publicado em: 02/01/2024</p>
+            <img src="image2.jpg" alt="Descrição da imagem 2" class="post-image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+            <a href="#" class="read-more">Leia mais</a>
+        </article>
+
+        <article class="post" data-post-id="3">
+            <h2>Post 3</h2>
+            <p class="date">Publicado em: 03/01/2024</p>
+            <img src="image3.jpg" alt="Descrição da imagem 3" class="post-image">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+            <a href="#" class="read-more">Leia mais</a>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meu Blog. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="postModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Título do Post</h2>
+            <p id="modal-date">Data de Publicação</p>
+            <img id="modal-image" src="" alt="" class="modal-image">
+            <p id="modal-description">Descrição do Post.</p>
+        </div>
+    </div>
+
+    <script src="posts.js"></script>
+</body>
+</html>

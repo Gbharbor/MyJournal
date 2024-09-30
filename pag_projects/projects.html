@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos</title>
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <header>
+        <h1>Meus Projetos</h1>
+    </header>
+
+    <main class="container">
+        <section class="projects">
+            <article class="project" data-project-id="1">
+                <img src="project1.jpg" alt="Projeto 1" class="project-image">
+                <h2>Título do Projeto 1</h2>
+                <p>Uma breve descrição do projeto. Este projeto envolve...</p>
+                <a href="#" class="view-more">Ver Mais</a>
+            </article>
+
+            <article class="project" data-project-id="2">
+                <img src="project2.jpg" alt="Projeto 2" class="project-image">
+                <h2>Título do Projeto 2</h2>
+                <p>Uma breve descrição do projeto. Este projeto envolve...</p>
+                <a href="#" class="view-more">Ver Mais</a>
+            </article>
+
+            <article class="project" data-project-id="3">
+                <img src="project3.jpg" alt="Projeto 3" class="project-image">
+                <h2>Título do Projeto 3</h2>
+                <p>Uma breve descrição do projeto. Este projeto envolve...</p>
+                <a href="#" class="view-more">Ver Mais</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meus Projetos. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Título do Projeto</h2>
+            <img id="modal-image" src="" alt="" class="modal-image">
+            <p id="modal-description">Descrição do Projeto.</p>
+            <p id="modal-link"><a href="#" target="_blank">Link para o projeto</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

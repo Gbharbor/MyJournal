@@ -25,7 +25,9 @@ a {
     text-decoration: none;
 }
 
+
 img {
+    max-width: 100%;
     height: auto;
 }
 
@@ -144,12 +146,12 @@ body {
 
 .headline .span {
     background-image: linear-gradient(90deg, #0900e9, #010101 75%);
-    display: flex;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+    display: inline-flex; /* inline-flex para manter o comportamento de elemento em linha */
+    -webkit-text-fill-color: transparent; /* Faz o texto ser transparente */
+    -webkit-background-clip: text; /* Aplica o gradiente ao texto */
     font-size: 70px;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+    justify-content: center; /* Alinha o conteúdo horizontalmente ao centro */
 }
 .header {
     position: fixed;
@@ -329,6 +331,8 @@ body {
     margin-bottom: 30px;
 }
 .botao {
+    width: 100%;
+    max-width: 300px;
     background-color: #0900E9;
     background-size: 100%;
     color: #ffffff;
@@ -350,3 +354,74 @@ body {
     background-position: right;
     background-color: #0900E9;
 }
+
+@media (max-width: 768px) {
+    .profile-card .profile-banner {
+        border-radius: 50%;
+        flex-direction: column;
+        text-align: center;
+    }
+    hover-1:hover {
+        color: inherit;
+        transform: none;
+
+    }
+    html {
+      font-size: 8px; /* Diminui a base do tamanho da fonte */
+    }
+  
+    .container {
+      flex-direction: column; /* Empilhar elementos em vez de alinhá-los horizontalmente */
+      padding-inline: 8px;
+    }
+  
+    .hero-content {
+      max-width: 90%; /* Deixar o conteúdo centralizado e com mais espaço */
+    }
+  
+    .navbar {
+      max-width: 100%; /* Ajustar a largura do menu para preencher a tela */
+      right: -100%; /* Fechar o menu fora da tela */
+    }
+  
+    .navbar.active {
+      transform: translateX(-100%);
+    }
+  
+    .navbar-list {
+      display: block; /* Mudar o layout da lista de links */
+    }
+  
+    .hero-banner {
+      transform: scale(1); /* Evitar o aumento excessivo de imagem ao fazer hover em telas pequenas */
+      margin-inline: auto;
+    }
+  
+    .hero-banner:hover {
+      transform: scale(1.1); /* Reduzir o efeito de hover em telas menores */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    hover-1:hover {
+        color: inherit;
+        transform: none;
+    }
+    .profile-card,
+    .beside {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile-card img {
+      max-width: 100px; /* Reduz o tamanho da imagem do perfil em telas pequenas */
+    }
+  
+    .navbar .link-list {
+      columns: 1; /* Exibir links em uma única coluna em telas pequenas */
+    }
+  
+    .fix-botao {
+      flex-direction: column;
+    }
+  }
