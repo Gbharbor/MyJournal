@@ -1,95 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GBHarbor - Personal Blog</title>
-    <meta name="title" content="GBHarbor - Personal Blog">
-    <meta name="description" content="This is a personal blog by GBHarbor where technology, leadership, and coding insights are shared.">
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Preload Images -->
-    <link rel="preload" as="image" href="./assets/images/hero-banner.png">
-    <link rel="preload" as="image" href="./assets/images/pattern-2.svg">
-    <link rel="preload" as="image" href="./assets/images/pattern-3.svg">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header active" data-header>
+    <header class="header" data-header>
         <div class="container">
             <a href="#" class="logo">
                 <img src="./assets/images/newlogo2.png" width="50" height="50" alt="GBHarbor logo">
             </a>
-            <nav class="navbar active" data-navbar>
-                <div class="navbar-top">
-                    <a href="#" class="logo">
-                        <img src="./assets/images/newlogo2.png" width="60" height="60" alt="GBHarbor logo">
-                    </a>
-                    <button class="nav-close-btn" aria-label="Close menu" data-nav-toggler>
-                        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-                    </button>
-                </div>
+            <nav class="navbar" data-navbar>
                 <ul class="navbar-list">
-                    <li><a href="#home" class="navbar-link hover-1" data-nav-toggler>Home</a></li>
-                    <li><a target="_blank" href="./pag_projects/projects.html" class="navbar-link hover-1" data-nav-toggler>Projects</a></li>
-                    <li><a target="_blank" href="./pag_posts/posts.html" class="navbar-link hover-1" data-nav-toggler>Posts</a></li>
-                    <li><a href="#contact" class="navbar-link hover-1" data-nav-toggler>Contact</a></li>
+                    <li><a href="#home" class="navbar-link">Home</a></li>
+                    <li><a href="#projects" class="navbar-link">Projects</a></li>
+                    <li><a href="#posts" class="navbar-link">Posts</a></li>
+                    <li><a href="#contact" class="navbar-link">Contact</a></li>
                 </ul>
                 <div class="navbar-bottom">
                     <div class="profile-card">
-                     <img src="./assets/images/github_git_icon_145985.png" width="38" height="48" alt="Gui" class="profile-banner">
-                        <div>
-                            <a target="_blank" href="https://github.com/Gbharbor"><p class="hover-1">GITHUB</p></a>
-                        </div>
+                        <img src="./assets/images/github_git_icon_145985.png" width="30" height="30" alt="GitHub" class="profile-banner">
+                        <a target="_blank" href="https://github.com/Gbharbor"><p>GITHUB</p></a>
                     </div>
                 </div>
-                <p class="copyright-text">
-                    Copyright 2024 ©Gbharbor.
-                </p>
             </nav>
-            <button class="nav-open-btn" aria-label="Open menu" data-nav-toggler>
-                <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-            </button>
+            <div class="menu-indicator" data-nav-toggler>
+                <span>&#9664;</span>
+            </div>
         </div>
     </header>
-
     <main>
-        <article>
-            <!-- Hero Section -->
-            <section class="hero" id="home" aria-label="home">
-                <div class="container">
-                    <div class="beside">
-                        <div class="hero-content">
-                            <h1 class="headline section-title">
-                                <span class="span">Hello, I'm GB Harbor</span>
-                            </h1>
-                            <p class="hero-text">
-                                Olá, sou estudante de Engenharia de Software, no 1º semestre. Estou estudando JavaScript e sou apaixonado por tecnologia, sempre buscando aprender mais.
-                                Tenho experiência em liderança de equipe, comunicação e interação em projetos. Já desenvolvi projetos Frontend. Também tenho conhecimento em Git/GitHub.
-                            </p>
-                            <div class="fix-botao">
-                                <a href="#" class="botao">
-                                    <span>Get in Touch!</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="hero-banner">
-                            <img src="./assets/images/newlogo2.png" width="350" height="350" alt="Gui Porto">
-                        </div>
+        <section class="hero" id="home" aria-label="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="headline section-title">
+                        <span class="typing-animation">Hi, Welcome !</span>
+                    </h1>
+                    <p class="hero-text">
+                        Hey! Sou Guilherme Porto, estudante de Engenharia de Software no segundo semestre, apaixonado por tecnologia e desenvolvimento web. Tenho experiência em HTML, CSS, SASS e JavaScript, além de conhecimentos em C/C++. Busco sempre aprender e colaborar em projetos inovadores.
+                    </p>
+                    <div class="fix-botao">
+                        <a href="#" class="botao">
+                            <span>CONTACT ME</span>
+                        </a>
                     </div>
                 </div>
-            </section>
-        </article>
+                <div class="hero-banner">
+                    <img src="./assets/images/newlogo2.png" width="350" height="350" alt="Gui Porto">
+                </div>
+            </div>
+        </section>
+        <section id="posts" class="container">
+            <h2>Posts Recentes</h2>
+            <article class="post" data-post-id="1">
+                <h2>Welcome to my new world: first posts bout GIT.GITHUB</h2>
+                <p class="date">Publicado em: 30/09/2024</p>
+                <img src="image1.jpg" alt="Descrição da imagem 1" class="post-image">
+                <p>Resumo completo e prático para entender de vez como utilizar as principais funcionalidades do git & github.</p>
+                <a href="#" class="read-more">Leia mais</a>
+            </article>
+            <article class="post" data-post-id="2">
+                <h2>Post 2</h2>
+                <p class="date">Publicado em: 30/09/2024</p>
+                <img src="image2.jpg" alt="github_mod1" class="post-image">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+                <a href="#" class="read-more">Leia mais</a>
+            </article>
+            <article class="post" data-post-id="3">
+                <h2>Post 3</h2>
+                <p class="date">Publicado em: 03/01/2024</p>
+                <img src="image3.jpg" alt="Descrição da imagem 3" class="post-image">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+                <a href="#" class="read-more">Leia mais</a>
+            </article>
+        </section>
     </main>
-
-    <!-- Custom JS -->
-    <script src="./assets/js/script.js"></script>
-    <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <footer>
+        <p>&copy; 2024 GbHarbor. Todos os direitos reservados.</p>
+    </footer>
+    <div class="modal" id="postModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Título do Post</h2>
+            <p id="modal-date">Data de Publicação</p>
+            <img id="modal-image" src="" alt="" class="modal-image">
+            <p id="modal-description">Descrição do Post.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

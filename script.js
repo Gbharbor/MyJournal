@@ -1,4 +1,21 @@
-// Função para mostrar o modal
+// Função para adicionar um evento a vários elementos
+const addEventOnElements = (elements, eventType, callback) => {
+    elements.forEach(element => element.addEventListener(eventType, callback));
+};
+
+/* Alternador do navbar no mobile */
+const navbar = document.querySelector("[data-navbar]");
+const navTogglers = document.querySelectorAll("[data-nav-toggler]");
+const toggleNav = () => navbar.classList.toggle("active");
+addEventOnElements(navTogglers, "click", toggleNav);
+
+/* Animação do Header ao rolar a página */
+const header = document.querySelector("[data-header]");
+window.addEventListener("scroll", () => {
+    header.classList.toggle("active", window.scrollY > 100);
+});
+
+/* Função para mostrar o modal de post */
 function openModal(postId) {
     const modal = document.getElementById('postModal');
     const modalTitle = document.getElementById('modal-title');
@@ -6,29 +23,27 @@ function openModal(postId) {
     const modalImage = document.getElementById('modal-image');
     const modalDescription = document.getElementById('modal-description');
 
-    // Dados do post (simulação, você pode substituir por dados reais)
     const posts = {
         1: {
-            title: "Título do Post 1",
-            date: "Publicado em: 01/01/2024",
+            title: "Welcome to my new world: first posts bout GIT.GITHUB",
+            date: "Publicado em: 30/09/2024",
             image: "image1.jpg",
-            description: "Descrição completa do Post 1. Lorem ipsum dolor sit amet."
+            description: "Resumo completo e prático para entender de vez como utilizar as principais funcionalidades do git & github."
         },
         2: {
-            title: "Título do Post 2",
-            date: "Publicado em: 02/01/2024",
+            title: "Post 2",
+            date: "Publicado em: 30/09/2024",
             image: "image2.jpg",
-            description: "Descrição completa do Post 2. Lorem ipsum dolor sit amet."
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi."
         },
         3: {
-            title: "Título do Post 3",
+            title: "Post 3",
             date: "Publicado em: 03/01/2024",
             image: "image3.jpg",
-            description: "Descrição completa do Post 3. Lorem ipsum dolor sit amet."
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi."
         }
     };
 
-    // Preencher o modal com os dados do post
     const post = posts[postId];
     modalTitle.textContent = post.title;
     modalDate.textContent = post.date;
@@ -36,28 +51,28 @@ function openModal(postId) {
     modalImage.alt = post.title;
     modalDescription.textContent = post.description;
 
-    modal.style.display = "block"; // Exibir o modal
+    modal.style.display = "block";
 }
 
-// Função para fechar o modal
+/* Função para fechar o modal */
 function closeModal() {
     const modal = document.getElementById('postModal');
-    modal.style.display = "none"; // Ocultar o modal
+    modal.style.display = "none";
 }
 
-// Adicionar eventos para os botões de "Leia mais"
+/* Adiciona eventos para abrir o modal ao clicar em "Leia mais" */
 document.querySelectorAll('.read-more').forEach(button => {
     button.addEventListener('click', function(event) {
-        event.preventDefault(); // Evitar o comportamento padrão do link
+        event.preventDefault();
         const postId = this.closest('.post').getAttribute('data-post-id');
-        openModal(postId); // Abrir o modal com o ID do post
+        openModal(postId);
     });
 });
 
-// Evento para fechar o modal ao clicar no botão de fechar
+/* Fechar o modal ao clicar no botão de fechar */
 document.querySelector('.close-button').addEventListener('click', closeModal);
 
-// Fechar o modal ao clicar fora do conteúdo do modal
+/* Fechar o modal ao clicar fora do conteúdo do modal */
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('postModal');
     if (event.target === modal) {
@@ -65,7 +80,7 @@ window.addEventListener('click', function(event) {
     }
 });
 
-// Animação para os posts ao entrar na tela
+/* Animação para os posts ao rolar a página */
 const posts = document.querySelectorAll('.post');
 window.addEventListener('scroll', function() {
     posts.forEach(post => {
