@@ -2,11 +2,11 @@
     --background-color: #ffffff;
     --primary-color: rgb(9, 0, 233);
     --primary-hover-color: rgb(6, 0, 200);
-    --text-color: rgb(9, 0, 233);
+    --text-color: #2F2F2F;
     --button-color: rgb(9, 0, 233);
     --button-hover-bg: rgb(9, 0, 233);
     --modal-bg-color: rgba(0, 0, 0, 0.8);
-    --modal-content-bg: #fff;
+    --modal-content-bg:#D3D3D3;
     --footer-bg: #333;
     --footer-text-color: #fff;
 }
@@ -19,12 +19,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    font-family: 'Noto Sans', sans-serif;
+    overflow-x: hidden;/*remove a brra de rolagem horizontal*/
+    overflow-y: scroll; /* Garante que a rolagem vertical funcione sem exibir a barra */
+    font-family: 'Fira Code', monospace;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+}
+/* Para dispositivos que mostram a barra de rolagem vertical como uma sobreposição */
+body::-webkit-scrollbar {
+    width: 0; /* Define a largura da barra de rolagem como zero */
+    background: transparent; /* Fundo transparente */
+}
+h1, h2, p {
+    font-family: 'Fira Code', monospace;
 }
 
 /* Header */
@@ -36,36 +49,82 @@ body {
     padding: 24px;
     background-color: var(--background-color);
     z-index: 4;
-    transition: padding-block 0.5s;
+    transition: padding-block 0.5s, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra inicial para o efeito 3D */
 }
 .header.active {
     padding-block: 8px;
-    box-shadow: 0 8px 20px 0 hsla(0, 0%, 0%, 0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa ao rolar a página */
     border-bottom: 1px solid var(--background-color);
-    animation: slideIn 0.5s ease forwards;
 }
 @keyframes slideIn {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(0); }
 }
-.typing-animation {
+/* Estilo base para todos os efeitos de digitação */
+.typing-effect {
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Ajuste conforme necessário */
     border-right: 2px solid var(--primary-color); /* Cria um cursor */
     white-space: nowrap;
     overflow: hidden;
-    animation: typing-and-deleting 6s steps(30, end) infinite, blink-caret 2s step-end infinite;
+    animation: blink-caret 0.7s step-end infinite;
 }
 
-@keyframes typing-and-deleting {
+/* Efeito de digitação com movimento para "Hi, welcome" */
+.typing-animation {
+    animation: typing-move 3s steps(30, end) infinite, blink-caret 0.7s step-end infinite;
+}
+
+/* Efeito de digitação fixo para "Posts" */
+.typing-static-posts {
+    animation: typing-infinite-posts 2s steps(5, end) infinite, blink-caret 0.7s step-end infinite;
+}
+
+/* Efeito de digitação fixo para "Projects" */
+.typing-static-projects {
+    animation: typing-infinite-projects 2s steps(8, end) infinite, blink-caret 0.7s step-end infinite;
+}
+
+/* Animação de digitação para "Hi, welcome" */
+@keyframes typing-move {
     0% { width: 0; }
-    40% { width: 100%; }
-    60% { width: 100%; }
+    50% { width: 100%; }
     100% { width: 0; }
 }
+/* Animação de digitação infinita para "Posts" */
+@keyframes typing-infinite-posts {
+    0% { width: 0; }
+    50% { width: 6ch; } /* Vai até o final da palavra "Posts" */
+    100% { width: 0; } /* Volta ao início */
+}
 
+/* Animação de digitação infinita para "Projects" */
+@keyframes typing-infinite-projects {
+    0% { width: 0; }
+    50% { width: 9ch; } /* Vai até o final da palavra "Projects" */
+    100% { width: 0; } /* Volta ao início */
+}
+
+/* Animação do cursor piscante */
 @keyframes blink-caret {
     50% { border-color: transparent; }
+}
+
+/* Estilos adicionais para os títulos */
+.posts-title, .projects-title {
+    margin-top: 50px;
+    text-align: left;
+    color: var(--primary-color);
+}
+
+.typing-effect, .posts-title, .projects-title {
+    font-family: 'Fira Code', monospace; /* Define a mesma fonte */
+    font-size: 2.5rem; /* Ajuste conforme necessário */
+    border-right: 2px solid var(--primary-color); /* Cria o cursor */
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--primary-color); /* Cor do texto */
 }
 
 /* Indicador de menu (seta fixa próxima à borda direita) */
@@ -115,7 +174,9 @@ body {
     overflow-y: auto;
     visibility: hidden;
     transition: transform 0.8s cubic-bezier(0.05, 0.83, 0.52, 0.97), visibility 0s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.3); /* Efeito 3D */
 }
+
 .navbar.active {
     transform: translateX(-340px);
     visibility: visible;
@@ -223,40 +284,74 @@ body {
     background-color: var(--button-color);
     color: var(--background-color);
     font-size: 15px;
-    font-weight: 700;
+    font-weight: normal; /* Remove o negrito */
     padding: 10px 20px;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .botao:hover {
     transform: translateY(-2px);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra aumentada no hover */
     background-color: var(--button-hover-bg);
 }
-
+/* Ajuste de largura para elementos que podem estar excedendo o tamanho da tela */
+.container,
+.hero .container,
+#posts .container {
+    max-width: 100vw;
+    padding: 0 15px; /* Ajusta o padding para evitar ultrapassar a largura da tela */
+    margin: 0 auto;
+}
 /* Seção de Projetos */
 #projects {
     padding-inline: 20px;
     margin-top: 50px;
 }
+/* Estilos adicionais para o título de "Projects" */
+.projects-title {
+    margin-top: 20px; /* Espaço acima do título */
+    text-align: left; /* Alinha o título à esquerda */
+    color: var(--primary-color); /* Define a cor conforme a paleta */
+    margin-left: 0;
+    padding-left: 0;
+}
+/* Alinha o título "Projects" totalmente à esquerda */
+.section-title {
+    text-align: left;    /* Alinha o texto à esquerda */
+    margin-left: 0;      /* Remove a margem esquerda */
+    padding-left: 0;     /* Remove qualquer padding à esquerda */
+    width: 100%;         /* Ocupa toda a largura do contêiner para garantir alinhamento à esquerda */
+    font-size: 2rem;     /* Ajuste o tamanho da fonte conforme desejado */
+    font-weight: normal; /* Ajusta o peso da fonte para combinar com o estilo desejado */
+}
 
 /* Posts e Modal */
 #posts {
+    padding-top: 80px; /* Ajuste o valor conforme a altura do header */
     padding-inline: 20px;
-    margin-top: 50px;
-    max-width: 800px;
+    margin-top: 20px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#posts h2 {
-    font-size: 1.5rem;
+#posts h2, .projects-container h2  {
+    text-align: left;    /* Alinha o texto à esquerda */
+    font-weight: 400; /* Altera o peso da fonte para normal */
+    font-size: 1.5rem; /* ajuste o tamanho, se necessário */
+    margin-left: 0;      /* Remove a margem esquerda */
+    padding-left: 0;     /* Remove qualquer padding à esquerda */
     color: var(--primary-color);
     margin-bottom: 20px;
     text-align: center;
+    width: 100%;
+    margin-top: 60px;
+
 }
+
 .post {
     font-size: 0.9rem;
     color: black;
@@ -264,8 +359,14 @@ body {
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease; /* Transição suave para o hover */
 }
+/* Sombra mais intensa no hover */
+.post:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -295,17 +396,278 @@ body {
 .close-button:hover {
     color: var(--primary-color);
 }
-/*footer*/
-footer {
-    width: 100%;
+.projects-container {
+    max-width: 900px;
+    margin: 0 auto; /* Centraliza o container */
+    padding: 20px;
+}
+
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dois projetos lado a lado */
+    gap: 20px; /* Espaço entre os cards */
+}
+
+/* Estilo dos cards de projeto */
+.project {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
     text-align: center;
-    padding: 10px;
-    background: var(--footer-bg);
+    transition: transform 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Efeito 3D */
+    height: 350px; /* Altura fixa para uniformidade */
+    overflow: hidden;
+}
+
+/* Reduz o efeito de destaque ao passar o mouse */
+.project:hover {
+    transform: scale(1.02); /* Ajuste menor no scale para um efeito mais sutil */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra levemente mais forte */
+}
+/* Ajusta a rolagem para o texto interno caso exceda o espaço */
+.project p {
+    max-height: 100px; /* Limita a altura do parágrafo */
+    overflow: hidden; /* Esconde o texto que ultrapassa o limite */
+    text-overflow: ellipsis; /* Indica visualmente que o texto foi cortado */
+}
+
+.project h2 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-weight: 500; /* Remove o negrito adicional */
+}
+
+.project-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.view-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s ease;
+}
+
+.view-more:hover {
+    background: var(--primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+footer {
+    text-align: center;
+    padding: 15px;
+    background: var(--footer-bg); /* Alterado para usar a cor de fundo do footer */
     color: var(--footer-text-color);
-    position: relative; /* Caso o layout precise */
+    width: 100%;
+    margin-top: 40px; /* Espaço entre a seção de projetos e o rodapé */
+}
+
+
+/* Estilo do Modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: var(--primary-color);
+}
+
+/* Animação para os projetos ao entrar na tela */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Footer */
+.footer_area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    font-family: 'Fira Code', monospace;
+}
+
+.footer_item {
+    flex: 1;
+    text-align: center;
+}
+
+.footer_social a {
+    color: var(--footer-text-color);
+    font-size: 2rem; /* Tamanho adequado para os ícones */
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer_social a:hover {
+    color: var(--primary-color);
+    transform: scale(1.2); /* Aumenta o ícone no hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao passar o mouse */
+}
+/* Estilos para os ícones de redes sociais no rodapé */
+.footer_social a i {
+    color: var(--footer-text-color);
+    font-size: 1.5rem; /* Define um tamanho adequado para os ícones */
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer_social a i:hover {
+    color: white;
+    transform: scale(1.3); /* Aumenta o ícone ao passar o mouse */
+   /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma leve sombra */
+}
+
+.area_area2 {
+    font-size: 0.8em;
+}
+
+#saiba_mais {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+#saiba_mais:hover {
+    text-decoration: underline;
+}
+.footer_item.area3 {
+    display: flex;
+    flex-direction: row; /* Layout padrão em linha */
+    gap: 10px; /* Espaçamento padrão entre o campo de e-mail e o botão */
+    align-items: center; /* Alinha verticalmente os itens */
+}
+
+/* Alinhamento e espaçamento padrão para .area3 */
+.area3 {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre o campo de e-mail e o botão */
+    flex-direction: row;
+}
+
+/* Campo de entrada de e-mail */
+.area3 input[type="email"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Fira Code', monospace;
+    width: 150px;
+    box-sizing: border-box;
+    text-align: center;
+    color: var(--text-color);
+    text-transform: none; /* Permite ao usuário digitar em qualquer formato */
+}
+
+/* Estilo para destacar o campo de e-mail */
+.highlight-email,
+.footer_item.area3 input[type="email"].highlight-email,
+.highlight-email.active {
+    box-shadow: 0 0 10px 2px rgba(9, 0, 233, 0.6); /* Destaque com borda */
+    transition: box-shadow 0.3s ease;
+}
+
+.area3 input[type="email"]::placeholder {
+    color: var(--text-color); /* Ajusta a cor do texto do placeholder */
+}
+
+/* Botão "Contact me !" */
+.area3 .btn {
+    padding: 8px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--background-color);
+    cursor: pointer;
+    font-size: 1em;
+    text-transform: none; /* Remove uppercase */
+    font-family: 'Fira Code', monospace;
+    width: 150px; /* Mesma largura do campo de e-mail */
+    box-sizing: border-box;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.area3 .btn:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px); /* Efeito hover consistente */
+}
+
+@media (max-width: 966px) {
+    .area3 {
+        flex-direction: column; /* Alinha o campo de e-mail e o botão verticalmente */
+        gap: 15px; /* Adiciona espaço entre o campo de e-mail e o botão */
+        align-items: stretch; /* Garante que os elementos ocupem toda a largura */
+    }
+
+    .area3 input[type="email"],
+    .area3 .btn {
+        width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
+    }
+    .footer_item.area3 {
+        flex-direction: column; /* Alinha o campo de e-mail e o botão verticalmente */
+        gap: 15px; /* Aumenta o espaço entre o campo e o botão */
+        align-items: stretch; /* Faz com que ambos os elementos ocupem toda a largura */
+    }
+
+    .footer_item.area3 input[type="email"],
+    .footer_item.area3 .btn {
+        width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
+    }
+    #posts {
+        padding-top: 80px; /* Ajuste o valor conforme a altura do seu header */
+    }
 }
 
 @media (max-width: 700px) {
+    .projects {
+        grid-template-columns: 1fr; /* Exibe um projeto por linha em telas menores */
+    }
     .header .container {
         display: flex;
         justify-content: center;
@@ -366,6 +728,21 @@ footer {
         justify-content: center;
         margin-top: 20px;
     }
+    .footer_area {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .area3 {
+        flex-direction: column; /* Altera para coluna em telas menores */
+        gap: 15px; /* Aumenta o espaço entre o campo de e-mail e o botão */
+        align-items: stretch; /* Garante que os elementos ocupem toda a largura */
+    }
+
+    .area3 input[type="email"],
+    .area3 .btn {
+        width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
+    }
 }
     
 @media (max-width: 600px) {
@@ -414,5 +791,18 @@ footer {
     .post {
         font-size: 0.85rem;
         padding: 15px;
+    }
+    #posts h2 {
+        font-size: 1rem; /* Ajuste o valor conforme necessário */
+    }
+}
+/* Ocultar imagem da landing page em dispositivos pequenos */
+@media (max-width: 300px) {
+    .hero-banner {
+        display: none;
+    }
+    #posts h2 {
+        font-size: 1.2rem; /* Ajuste o tamanho conforme necessário */
+        text-align: center;
     }
 }

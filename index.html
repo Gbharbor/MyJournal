@@ -6,8 +6,11 @@
     <title>GBHarbor - Personal Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Adicionando Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header class="header" data-header>
@@ -17,10 +20,10 @@
             </a>
             <nav class="navbar" data-navbar>
                 <ul class="navbar-list">
-                    <li><a href="#home" class="navbar-link">Home</a></li>
-                    <li><a href="#projects" class="navbar-link">Projects</a></li>
-                    <li><a href="#posts" class="navbar-link">Posts</a></li>
-                    <li><a href="#contact" class="navbar-link">Contact</a></li>
+                    <li><a href="#home" class="navbar-link" data-nav-toggler>Home</a></li>     
+                    <li><a href="#posts" class="navbar-link" data-nav-toggler>Posts</a></li>
+                    <li><a href="#projects" class="navbar-link" data-nav-toggler>Projects</a></li>
+
                 </ul>
                 <div class="navbar-bottom">
                     <div class="profile-card">
@@ -39,24 +42,25 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 class="headline section-title">
-                        <span class="typing-animation">Hi, Welcome !</span>
+                        <span class="typing-animation typing-effect ">Hi, Welcome!</span>
                     </h1>
                     <p class="hero-text">
                         Hey! Sou Guilherme Porto, estudante de Engenharia de Software no segundo semestre, apaixonado por tecnologia e desenvolvimento web. Tenho experiência em HTML, CSS, SASS e JavaScript, além de conhecimentos em C/C++. Busco sempre aprender e colaborar em projetos inovadores.
                     </p>
                     <div class="fix-botao">
-                        <a href="#" class="botao">
+                        <a href="#footer" id="contactBtn" class="botao">
                             <span>CONTACT ME</span>
                         </a>
-                    </div>
+                    </div>                                    
                 </div>
                 <div class="hero-banner">
                     <img src="./assets/images/newlogo2.png" width="350" height="350" alt="Gui Porto">
                 </div>
             </div>
         </section>
+
         <section id="posts" class="container">
-            <h2>Posts Recentes</h2>
+            <h2 class="typing-effect typing-static-posts posts-title">Posts_</h2>
             <article class="post" data-post-id="1">
                 <h2>Welcome to my new world: first posts bout GIT.GITHUB</h2>
                 <p class="date">Publicado em: 30/09/2024</p>
@@ -65,33 +69,84 @@
                 <a href="#" class="read-more">Leia mais</a>
             </article>
             <article class="post" data-post-id="2">
-                <h2>Post 2</h2>
-                <p class="date">Publicado em: 30/09/2024</p>
-                <img src="image2.jpg" alt="github_mod1" class="post-image">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+                <h2>Explorando JavaScript: Truques e Dicas Essenciais</h2>
+                <p class="date">Publicado em: 15/10/2024</p>
+                <img src="image2.jpg" alt="Descrição da imagem 2" class="post-image">
+                <p>Descubra truques e dicas de JavaScript que ajudam a otimizar o desenvolvimento e trazer maior eficiência ao seu código.</p>
                 <a href="#" class="read-more">Leia mais</a>
             </article>
             <article class="post" data-post-id="3">
-                <h2>Post 3</h2>
-                <p class="date">Publicado em: 03/01/2024</p>
+                <h2>CSS Avançado: Transformando seu Design com Animações</h2>
+                <p class="date">Publicado em: 01/11/2024</p>
                 <img src="image3.jpg" alt="Descrição da imagem 3" class="post-image">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+                <p>Aprenda como usar animações CSS para melhorar a experiência do usuário, tornando seu design mais dinâmico e interativo.</p>
                 <a href="#" class="read-more">Leia mais</a>
             </article>
         </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 GbHarbor. Todos os direitos reservados.</p>
-    </footer>
-    <div class="modal" id="postModal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2 id="modal-title">Título do Post</h2>
-            <p id="modal-date">Data de Publicação</p>
-            <img id="modal-image" src="" alt="" class="modal-image">
-            <p id="modal-description">Descrição do Post.</p>
-        </div>
+                
+ <!-- Seção de Projetos -->
+<section id="projects" class="projects-container">
+    <h2 class="typing-effect typing-static-projects ">Projects_</h2>
+    <div class="projects">
+        <article class="project" data-project-id="1">
+            <img src="project1.jpg" alt="Projeto 1" class="project-image">
+            <h2>Título do Projeto 1</h2>
+            <p>Uma breve descrição do projeto. Este projeto envolve...</p>
+            <a href="#" class="view-more">Ver Mais</a>
+        </article>
+
+        <article class="project" data-project-id="2">
+            <img src="project2.jpg" alt="Projeto 2" class="project-image">
+            <h2>Título do Projeto 2</h2>
+            <p>Uma breve descrição do projeto. Este projeto envolve...</p>
+            <a href="#" class="view-more">Ver Mais</a>
+        </article>
+
+        <article class="project" data-project-id="3">
+            <img src="project3.jpg" alt="Projeto 3" class="project-image">
+            <h2>Título do Projeto 3</h2>
+            <p>Uma breve descrição do projeto. Este projeto envolve...</p>
+            <a href="#" class="view-more">Ver Mais</a>
+        </article>
+        <article class="project" data-project-id="4">
+            <img src="project4.jpg" alt="Projeto 4" class="project-image">
+            <h2>Título do Projeto 4</h2>
+            <p>Uma breve descrição do projeto. Este projeto envolve...</p>
+            <a href="#" class="view-more">Ver Mais</a>
+        </article>
     </div>
+</section>
+    </main>
+
+    <!-- Novo Rodapé com Ícones de Redes Sociais -->
+    <footer id="footer">
+        <div class="footer_area">
+            <div class="footer_item area1">
+                <div class="footer_social">
+                    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://tiktok.com/@yourprofile" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/yourprofile" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>                
+            </div>
+            <div class="footer_item area2">
+                <div class="area_area2">Todos os direitos reservados &COPY;gbharbor 
+                    <a href="https://www.linkedin.com/in/drportox/" target="_blank" id="saiba_mais">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="footer_item area3">
+                <form method="POST">
+                    <input type="email" name="email" placeholder="seu email aqui" class="highlight-email"/>
+                    <button class="btn">
+                        me chame!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </footer>    
+    
     <script src="script.js"></script>
 </body>
 </html>
