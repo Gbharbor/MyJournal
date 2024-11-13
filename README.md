@@ -34,7 +34,7 @@ Se quiser acompanhar meu trabalho ou entrar em contato, você pode me encontrar 
 - [YouTube](https://www.youtube.com/@devharbor)
 - [Instagram](https://www.instagram.com/gbharbor/)
 - [LinkedIn](www.linkedin.com/in/gbharbor)
-- [X (antigo Twitter)](https://x.com/dev_harbor)
+- [X (antigo Twitter)](https://x.com/gbharbor)
 
 ---
 
