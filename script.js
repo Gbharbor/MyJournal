@@ -1,155 +1,211 @@
-// Função para adicionar um evento a múltiplos elementos
-// Útil para atribuir o mesmo evento a vários botões, links, etc.
+// ============================
+// Função para adicionar eventos a múltiplos elementos
+// ============================
+/**
+ * Adiciona eventos a uma lista de elementos.
+ * @param {NodeList} elements - Lista de elementos DOM.
+ * @param {string} eventType - Tipo de evento (ex.: "click").
+ * @param {function} callback - Função a ser executada no evento.
+ */
 const addEventOnElements = (elements, eventType, callback) => {
     elements.forEach(element => element.addEventListener(eventType, callback));
 };
 
-/* Alternador do navbar no mobile */
-// Seleciona o navbar e elementos que acionam a abertura/fechamento do menu no mobile
+// ============================
+// Alternador do Navbar no Mobile
+// ============================
+
+// Seleciona os elementos do Navbar e botões de alternância
 const navbar = document.querySelector("[data-navbar]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
-const navbarLinks = document.querySelectorAll(".navbar-link"); // Seleciona todos os links do menu
+const navbarLinks = document.querySelectorAll(".navbar-link");
 
-// Função para alternar a visibilidade do menu
+// Alterna a classe "active" para abrir/fechar o menu
 const toggleNav = () => navbar.classList.toggle("active");
+
+// Adiciona o evento de clique aos botões de alternância
 addEventOnElements(navTogglers, "click", toggleNav);
 
-/* Função para fechar o menu */
-// Fecha o menu caso ele esteja ativo
+// Fecha o Navbar caso esteja ativo (menu aberto)
 const closeNav = () => {
     if (navbar.classList.contains("active")) {
         navbar.classList.remove("active");
     }
 };
 
-// Adiciona o evento de clique aos links do menu
-// Fecha o navbar ao selecionar uma opção e realiza scroll suave até o alvo
+// Adiciona eventos de clique nos links do Navbar
+// Faz o scroll suave até o elemento alvo e fecha o menu
 addEventOnElements(navbarLinks, "click", (event) => {
-    event.preventDefault();
-    const targetId = event.target.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
+    event.preventDefault(); // Previne o comportamento padrão do link
+    const targetId = event.target.getAttribute("href"); // Obtém o ID do alvo
+    const targetElement = document.querySelector(targetId); // Seleciona o alvo no DOM
 
     if (targetElement) {
-        const offset = 100; // Ajuste para compensar a altura do header
-        const elementPosition = targetElement.offsetTop - offset;
+        const offset = 100; // Ajuste de deslocamento
+        const elementPosition = targetElement.offsetTop - offset; // Calcula a posição
         window.scrollTo({
             top: elementPosition,
-            behavior: "smooth"
+            behavior: "smooth" // Rolagem suave
         });
     }
-
-    closeNav(); // Fecha o menu após o clique em uma opção
+    closeNav(); // Fecha o menu após clicar em um link
 });
 
-/* Animação do Header ao rolar a página */
-// Adiciona uma classe ao header quando o usuário rola a página para baixo
+// ============================
+// Animação do Header ao Scroll
+// ============================
+
+// Seleciona o cabeçalho
 const header = document.querySelector("[data-header]");
+
+// Adiciona a classe "active" ao Header quando o scroll passa de 100px
 window.addEventListener("scroll", () => {
     header.classList.toggle("active", window.scrollY > 100);
 });
 
-/* Função para mostrar o modal de post */
-// Exibe o modal com informações do post clicado usando o postId para identificar o conteúdo
-function openModal(postId) {
-    const modal = document.getElementById('postModal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDate = document.getElementById('modal-date');
-    const modalImage = document.getElementById('modal-image');
-    const modalDescription = document.getElementById('modal-description');
-
-    // Dados dos posts, associados a cada postId
-    const posts = {
-        1: {
-            title: "Welcome to my new world: first posts bout GIT.GITHUB",
-            date: "Publicado em: 30/09/2024",
-            image: "image1.jpg",
-            description: "Resumo completo e prático para entender de vez como utilizar as principais funcionalidades do git & github."
-        },
-        2: {
-            title: "Explorando JavaScript: Truques e Dicas Essenciais",
-            date: "Publicado em: 15/10/2024",
-            image: "image2.jpg",
-            description: "Descubra truques e dicas de JavaScript que ajudam a otimizar o desenvolvimento e trazer maior eficiência ao seu código."
-        },
-        3: {
-            title: "CSS Avançado: Transformando seu Design com Animações",
-            date: "Publicado em: 01/11/2024",
-            image: "image3.jpg",
-            description: "Aprenda como usar animações CSS para melhorar a experiência do usuário, tornando seu design mais dinâmico e interativo."
-        }
-    };
-
-    // Verifica se o postId existe e atualiza o conteúdo do modal
-    const post = posts[postId];
-    if (post) {
-        modalTitle.textContent = post.title;
-        modalDate.textContent = post.date;
-        modalImage.src = post.image;
-        modalImage.alt = post.title;
-        modalDescription.textContent = post.description;
-        modal.style.display = "block";
+// ============================
+// Estrutura de Dados dos Posts
+// ============================
+/**
+ * Contém informações sobre os posts do blog, incluindo título, descrição, e conteúdo adicional.
+ */
+const postsData = [
+    {
+        id: 1,
+        title: "Comandos Básicos do Git",
+        date: "Publicado em: 30/09/2024",
+        image: "#",
+        description: "Este post apresenta um guia rápido dos comandos mais essenciais do Git para quem está começando.",
+        extraContent: `
+        <p>Veja abaixo uma lista dos principais comandos básicos do Git, úteis para controle de versão e colaboração:</p>
+        <div class="git-command-list">
+            <div class="git-command"><code>git init</code><p>Inicia um novo repositório Git no diretório atual.</p></div>
+            <div class="git-command"><code>git clone [url]</code><p>Clona um repositório remoto para o seu diretório local.</p></div>
+            <div class="git-command"><code>git add [arquivo]</code><p>Adiciona um arquivo específico ao staging, preparando-o para o commit.</p></div>
+            <div class="git-command"><code>git commit -m "mensagem"</code><p>Salva as mudanças no repositório local com uma mensagem descritiva.</p></div>
+        </div>
+        <p>Para mais detalhes, consulte a <a href="https://git-scm.com/doc" target="_blank">documentação oficial do Git</a>.</p>`
+    },
+    {
+        id: 2,
+        title: "GitHub - Software Engineering",
+        date: "Publicado em: 01/10/2024",
+        image: "#",
+        description: "Melhores repositórios no GitHub para estudar Ciência da Computação ou Engenharia de Software.",
+        extraContent: `<p>Uma análise dos repositórios mais úteis para engenheiros de software.</p>`
+    },
+    {
+        id: 3,
+        title: "Introdução ao JavaScript",
+        date: "Publicado em: 05/10/2024",
+        image: "#",
+        description: "Uma introdução ao JavaScript e seus principais conceitos para iniciantes.",
+        extraContent: `<p>Este post cobre os conceitos básicos de JavaScript.</p>`
     }
-}
+];
 
-/* Função para fechar o modal */
-// Oculta o modal quando acionado
-function closeModal() {
-    const modal = document.getElementById('postModal');
-    modal.style.display = "none";
-}
+// ============================
+// Renderização dos Posts
+// ============================
+/**
+ * Renderiza os posts na página usando os dados de `postsData`.
+ */
+function renderPosts() {
+    const postContainer = document.getElementById("postContainer");
 
-/* Animação para os posts ao rolar a página */
-// Adiciona a classe 'show' aos posts à medida que eles entram na área visível da tela
-const posts = document.querySelectorAll('.post');
-window.addEventListener('scroll', function() {
-    posts.forEach(post => {
-        const postPosition = post.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.5;
-        if (postPosition < screenPosition) {
-            post.classList.add('show');
-        }
-    });
-});
+    if (!postContainer) {
+        console.error("Elemento 'postContainer' não encontrado no HTML.");
+        return;
+    }
 
-document.querySelectorAll('.read-more').forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.preventDefault();
+    postsData.forEach(post => {
+        const postElement = document.createElement("article");
+        postElement.classList.add("post");
+        postElement.setAttribute("data-post-id", post.id);
+        postElement.innerHTML = `
+            <h2>${post.title}</h2>
+            <p class="date">${post.date}</p>
+            <img src="${post.image}" alt="${post.title}" class="post-image">
+            <p>${post.description}</p>
+            <div class="extra-content">${post.extraContent}</div>
+            <a href="#" class="read-more">Leia mais <span>▼</span></a>
+        `;
 
-        const post = this.closest('.post');
-        const extraContent = post.querySelector('.extra-content');
+        const readMoreButton = postElement.querySelector('.read-more');
+        const extraContent = postElement.querySelector('.extra-content');
 
         // Alterna a exibição do conteúdo extra
-        if (extraContent) {
-            extraContent.classList.toggle('expanded');
+        readMoreButton.addEventListener('click', (event) => {
+            event.preventDefault();
 
-            // Alterna o texto e a seta
-            if (extraContent.classList.contains('expanded')) {
-                this.innerHTML = 'Leia menos <span>▲</span>';
+            if (!extraContent.classList.contains('show')) {
+                extraContent.classList.add('show');
+                readMoreButton.innerHTML = 'Leia menos <span>▲</span>';
             } else {
-                this.innerHTML = 'Leia mais <span>▼</span>';
+                extraContent.classList.remove('show');
+                readMoreButton.innerHTML = 'Leia mais <span>▼</span>';
+                postElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
-            
-            // Rola suavemente de volta para o início do post expandido
-            post.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        });
+
+        postContainer.appendChild(postElement);
     });
-});
+}
 
-// Exibir o botão ao rolar para baixo
-const backToTopButton = document.getElementById("backToTop");
+// ============================
+// Botão "Voltar ao Topo"
+// ============================
+/**
+ * Configura a funcionalidade do botão "Voltar ao Topo".
+ */
+function setupBackToTopButton() {
+    const backToTopButton = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        backToTopButton.classList.add("show");
-    } else {
-        backToTopButton.classList.remove("show");
+    if (!backToTopButton) {
+        console.error("Elemento 'backToTop' não encontrado no HTML.");
+        return;
     }
-});
 
-// Rolar suavemente até o topo ao clicar
-backToTopButton.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    // Mostra ou oculta o botão com base na rolagem
+    window.addEventListener("scroll", () => {
+        backToTopButton.classList.toggle("show", window.scrollY > 300);
     });
+
+    // Rola suavemente até o topo ao clicar no botão
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+// ============================
+// Animação dos Posts ao Scroll
+// ============================
+/**
+ * Usa Intersection Observer para exibir os posts de forma sutil ao rolar a página.
+ */
+function observePosts() {
+    const posts = document.querySelectorAll('.post');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    posts.forEach(post => observer.observe(post));
+}
+
+// ============================
+// Inicialização Geral
+// ============================
+document.addEventListener("DOMContentLoaded", () => {
+    renderPosts();
+    setupBackToTopButton();
+    observePosts();
 });

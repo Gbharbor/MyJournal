@@ -309,121 +309,177 @@ body::-webkit-scrollbar {
     padding: 0 15px; /* Ajusta o padding para evitar ultrapassar a largura da tela */
     margin: 0 auto;
 }
-/* =======================
-        Area "Posts"
-   ======================= */
-   .git-section {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
+/* ===================
+   Área "Posts"
+   =================== */
+
+/* Configurações gerais da seção de posts */
+#posts {
+    padding-top: 80px; /* Espaçamento superior ajustado para não sobrepor o header */
+    padding: 20px; /* Espaçamento interno geral */
+    margin-top: 20px; /* Espaçamento externo superior */
+    max-width: 1000px; /* Define a largura máxima para centralizar a seção */
+    margin: auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo do título da seção de posts e projetos */
+#posts h2, .projects-container h2 {
+    text-align: center; /* Centraliza o texto */
+    font-weight: 400; /* Peso leve para o texto */
+    font-size: 1.5rem; /* Tamanho do título */
+    color: var(--primary-color); /* Cor do texto definida na variável */
+    margin-top: 60px; /* Espaçamento acima do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Contêiner para organizar os posts */
+.posts-container {
+    display: flex; /* Usa layout flexível */
+    gap: 20px; /* Espaçamento entre os posts */
+    margin-top: 20px; /* Espaçamento superior do contêiner */
+}
+
+/* ===================
+   Estilo dos Posts
+   =================== */
+
+/* Estilo geral de cada post */
+.post {
+    opacity: 0; /*invisivel*/
+    font-size: 0.9rem; /* Tamanho da fonte */
+    color: var(--text-color); /* Cor do texto */
+    background: #f8f9fa; /* Fundo claro */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    margin-bottom: 20px; /* Espaçamento inferior entre os posts */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para efeito 3D */
+    transform: translateY(50px); /* Começa deslocado para baixo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animação ao aparecer */
+}
+
+/* Exibe o post ao rolar a página */
+.post.show {
+    opacity: 1; /* Torna o post visível */
+    transform: translateY(0); /* Remove o deslocamento */
+}
+
+/* Efeito de hover nos posts */
+.post:hover {
+    background-color: #ffffff; /* Altera o fundo para branco */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+/* Container dos comandos Git */
+.git-command-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-top: 15px;
 }
 
-.git-section h3 {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.command-block {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #ffffff;
-    border-left: 4px solid var(--primary-color);
+/* Estilo de cada bloco de comando */
+.git-command {
+    background-color: #f4f4f9; /* Fundo claro para destaque */
+    padding: 15px;
+    border-left: 4px solid var(--primary-color); /* Barra colorida à esquerda */
     border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-.command-block pre {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #f1f1f1;
-    padding: 8px;
-    border-radius: 5px;
-    overflow-x: auto;
-    margin: 0;
-}
-
-.command-block p {
-    margin: 5px 0 0 0;
-    font-size: 0.9rem;
-    color: #333;
-}
-
-#posts {
-    padding-top: 80px; /* Ajuste o valor conforme a altura do header */
-    padding: 20px;
-    margin-top: 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-#posts h2, .projects-container h2  {
-    text-align: left;    /* Alinha o texto à esquerda */
-    font-weight: 400; /* Altera o peso da fonte para normal */
-    font-size: 1.5rem; /* ajuste o tamanho, se necessário */
-    margin-left: 0;      /* Remove a margem esquerda */
-    padding-left: 0;     /* Remove qualquer padding à esquerda */
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    text-align: center;
-    width: 100%;
-    margin-top: 60px;
-
-}
-.post {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    background: #f8f9fa; /* Cor de fundo inicial */
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Transição mais longa e suave para o background-color */
-    transition: background-color 1s linear, box-shadow 0.3s ease, transform 0.3s ease;
-}
-/* Efeito de hover com background branco */
-.post:hover {
-    background-color: #ffffff; /* Altera o fundo para branco */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-.post img {
+/* Estilo do código do comando */
+.git-command code {
     display: block;
-    margin: 0 auto;
-    max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
-    height: auto; /* Mantém a proporção da imagem */
+    font-family: 'Fira Code', monospace; /* Fonte monoespaçada */
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
 }
+
+/* Descrição do comando */
+.git-command p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-color); /* Cor padrão do texto */
+}
+
+/* Estilo do link dentro do post */
+.post a {
+    color: var(--secundary-color);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.post a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Estilo para imagens dos posts */
+.post img {
+    display: block; /* Garante que a imagem seja tratada como bloco */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    max-width: 100%; /* Limita a largura da imagem */
+    height: auto; /* Mantém a proporção */
+}
+
+/* ================================
+   Conteúdo Extra dos Posts
+   ================================ */
+
+/* Conteúdo adicional dos posts (oculto por padrão) */
+.post .extra-content {
+    max-height: 0; /* Altura inicial zero */
+    opacity: 0; /* Transparência total */
+    overflow: hidden; /* Esconde conteúdo que ultrapassa os limites */
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease; /* Animação ao expandir/ocultar */
+}
+
+/* Exibe o conteúdo extra ao expandir */
+.post .extra-content.expanded,
+.extra-content.show {
+    display: block; /* Mostra o conteúdo */
+    max-height: none; /* Define uma altura máxima */
+    opacity: 1; /* Torna visível */
+    padding-top: 5px; /* Adiciona espaçamento superior */
+}
+/* Estilo do conteúdo extra do post */
 .extra-content {
     max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
     opacity: 0;
-    padding-top: 0; /* Inicialmente sem padding para ocultar bem */
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Transição suave */
 }
-.extra-content.expanded {
-    max-height: 1500px; /* Ajuste para acomodar o conteúdo completo */
-    opacity: 1;
-    padding-top: 5px; /* Adiciona um leve espaçamento ao expandir */
-}
+/* ====================
+   Botão "Leia Mais"
+   ==================== */
+
+/* Estilo geral do botão "Leia mais" */
 .read-more {
-    display: inline-flex;
-    align-items: center;
-    font-size: 0.9rem; /* Tamanho da fonte do link "Leia mais" */
-    font-weight: 300;
-    color: var(--secundary-color); /* Azul claro como cor padrão */
-    text-decoration: none;
-    cursor: pointer;
-    /* Transição suave apenas na cor */
-    transition: color 0.4s ease;
-}
-.read-more:hover {
-    color: var(--primary-color); /* Azul principal ao passar o mouse */
-}
-.read-more span {
-    font-size: 0.8rem; /* Tamanho menor para a seta ao lado do texto */
-    margin-left: 3px; /* Espaçamento entre o texto e a seta */
-}
-.read-more.expanded span {
-    transform: rotate(180deg); /* Rotaciona a seta para cima ao expandir */
+    display: inline-block; /* Exibe como um bloco em linha */
+    margin-top: 10px; /* Espaçamento superior */
+    font-size: 0.9rem; /* Tamanho do texto */
+    font-weight: 300; /* Peso leve para o texto */
+    color: var(--secundary-color); /* Cor padrão do botão */
+    text-decoration: none; /* Remove o sublinhado */
+    cursor: pointer; /* Indica interatividade */
+    transition: color 0.4s ease; /* Animação suave para mudança de cor */
 }
 
+/* Efeito ao passar o mouse no botão */
+.read-more:hover {
+    color: var(--primary-color); /* Muda para azul principal no hover */
+}
+
+/* Estilo para a seta ao lado do texto */
+.read-more span {
+    font-size: 0.8rem; /* Reduz o tamanho da seta */
+    margin-left: 3px; /* Espaçamento entre o texto e a seta */
+}
+
+/* Estilo para o botão expandido */
+.read-more.expanded span {
+    transform: rotate(180deg); /* Rotaciona a seta para cima */
+}
 /* =======================
         Area "Projects"
    ======================= */

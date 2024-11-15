@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Metadados e Configurações Básicas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GBHarbor - Personal Blog</title>
 
-    <!-- Pré-conexão para carregar fontes de forma mais rápida -->
+    <!-- Pré-conexão para carregar fontes mais rapidamente -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Fontes principais: Fira Code e Noto Sans -->
+    <!-- Fontes principais do site -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Folha de estilo principal -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome para ícones de redes sociais -->
+    <!-- Ícones do Font Awesome para redes sociais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
-
-    <!-- Cabeçalho da Página -->
+    <!-- Cabeçalho -->
     <header class="header" data-header>
         <div class="container">
-            <!-- Logo principal -->
+            <!-- Logo do site -->
             <a href="#" class="logo">
                 <img src="./assets/images/newlogo2.png" width="50" height="50" alt="GBHarbor logo">
             </a>
 
-            <!-- Menu de Navegação -->
+            <!-- Menu de navegação -->
             <nav class="navbar" data-navbar>
                 <ul class="navbar-list">
+                    <!-- Links para as seções principais -->
                     <li><a href="#home" class="navbar-link" data-nav-toggler>Home</a></li>     
                     <li><a href="#posts" class="navbar-link" data-nav-toggler>Posts</a></li>
                     <li><a href="#projects" class="navbar-link" data-nav-toggler>Projects</a></li>
                 </ul>
                 
-                <!-- Link para o perfil do GitHub -->
+                <!-- Cartão com link para o GitHub -->
                 <div class="navbar-bottom">
                     <div class="profile-card">
                         <img src="./assets/images/github_git_icon_145985.png" width="30" height="30" alt="GitHub" class="profile-banner">
@@ -56,20 +56,19 @@
 
     <!-- Conteúdo Principal -->
     <main>
-        <!-- Seção de Boas-Vindas / Hero Section -->
+        <!-- Seção de Boas-Vindas -->
         <section class="hero" id="home" aria-label="home">
             <div class="container">
-                
-                <!-- Texto principal e saudação -->
+                <!-- Texto principal da seção -->
                 <div class="hero-content">
                     <h1 class="headline section-title">
-                        <span class="typing-effect typing-landing ">welcome!</span>
+                        <span class="typing-effect typing-landing">welcome!</span>
                     </h1>
                     <p class="hero-text">
                         Hey! Sou Guilherme Porto, estudante de Engenharia de Software no segundo semestre, apaixonado por tecnologia e desenvolvimento web. Tenho experiência em HTML, CSS, SASS e JavaScript, além de conhecimentos em C/C++. Busco sempre aprender e colaborar em projetos inovadores.
                     </p>
 
-                    <!-- Botão para Contato -->
+                    <!-- Botão para rolar até o rodapé -->
                     <div class="fix-botao">
                         <a href="#footer" id="contactBtn" class="botao">
                             <span>CONTACT ME</span>
@@ -77,7 +76,7 @@
                     </div>                                    
                 </div>
                 
-                <!-- Imagem da seção Hero -->
+                <!-- Imagem ilustrativa -->
                 <div class="hero-banner">
                     <img src="./assets/images/newlogo2.png" width="350" height="350" alt="Gui Porto">
                 </div>
@@ -87,110 +86,21 @@
         <!-- Seção de Posts -->
         <section id="posts" class="container">
             <h2 class="typing-effect typing-static-posts posts-title">Posts_</h2>
-
-            <!-- Exemplo de post -->
-            <article class="post" data-post-id="1">
-                <h2>Comandos Básicos do Git</h2>
-                <p class="date">Publicado em: 30/09/2024</p>
-                <img src="./assets/images/posts/Article-GIT.webp" alt="Imagem Git e GitHub" class="post-image">
-                <p>Este post apresenta um guia rápido dos comandos mais essenciais do Git para quem está começando.</p>
-                
-                <div class="extra-content">
-                    <section class="git-section">
-                        <h3>Comandos Essenciais</h3>
-                        <div class="command-block">
-                            <pre><code>git init</code></pre>
-                            <p>Inicializa um novo repositório Git no diretório atual.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git clone [URL]</code></pre>
-                            <p>Clona um repositório existente a partir de uma URL.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git add [arquivo]</code></pre>
-                            <p>Adiciona arquivos ao estágio para commit.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git commit -m "[mensagem]"</code></pre>
-                            <p>Cria um commit com uma mensagem descritiva.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git status</code></pre>
-                            <p>Verifica o status dos arquivos no repositório.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git log</code></pre>
-                            <p>Exibe o histórico de commits do repositório.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git pull</code></pre>
-                            <p>Baixa e aplica as alterações do repositório remoto no local.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git push</code></pre>
-                            <p>Envia as alterações do repositório local para o remoto.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git branch</code></pre>
-                            <p>Lista as branches existentes no repositório.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git checkout [branch]</code></pre>
-                            <p>Troca para uma branch específica.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git merge [branch]</code></pre>
-                            <p>Faz merge de uma branch específica na branch ativa.</p>
-                        </div>
-                        <div class="command-block">
-                            <pre><code>git remote add origin [URL]</code></pre>
-                            <p>Define o repositório remoto para onde o código será enviado.</p>
-                        </div>
-                    </section>
-                </div>
-            
-                <a href="#" class="read-more">Leia mais <span>▼</span></a>
-            </article>
-            
-            
-                      
-            <!-- Repetição do template de post para outros posts -->
-            <article class="post" data-post-id="2">
-                <h2>Explorando JavaScript: Truques e Dicas Essenciais</h2>
-                <p class="date">Publicado em: 15/10/2024</p>
-                <img src="image2.jpg" alt="Descrição da imagem 2" class="post-image">
-                <p>Descubra truques e dicas de JavaScript que ajudam a otimizar o desenvolvimento e trazer maior eficiência ao seu código.</p>
-                <div class="extra-content">
-                    <p>Este é o conteúdo completo do post, que será exibido ao clicar em "Leia mais".</p>
-                </div>
-                <a href="#" class="read-more">Leia mais <span>▼</span></a>
-            </article>
-
-            <!-- Outro post de exemplo -->
-            <article class="post" data-post-id="3">
-                <h2>CSS Avançado: Transformando seu Design com Animações</h2>
-                <p class="date">Publicado em: 01/11/2024</p>
-                <img src="image3.jpg" alt="Descrição da imagem 3" class="post-image">
-                <p>Aprenda como usar animações CSS para melhorar a experiência do usuário, tornando seu design mais dinâmico e interativo.</p>
-                <div class="extra-content">
-                    <p>Este é o conteúdo completo do post, que será exibido ao clicar em "Leia mais".</p>
-                </div>
-                <a href="#" class="read-more">Leia mais <span>▼</span></a>
-            </article>
+            <!-- Contêiner onde os posts serão renderizados dinamicamente -->
+            <div id="postContainer"></div>
         </section>
-                
+
         <!-- Seção de Projetos -->
         <section id="projects" class="projects-container">
             <h2 class="typing-effect typing-static-projects">Projects_</h2>
             <div class="projects">
-                <!-- Projeto de exemplo -->
+                <!-- Projetos exibidos dinamicamente -->
                 <article class="project" data-project-id="1">
                     <img src="project1.jpg" alt="Projeto 1" class="project-image">
                     <h2>Título do Projeto 1</h2>
                     <p>Uma breve descrição do projeto. Este projeto envolve...</p>
                     <a href="#" class="view-more">Ver Mais</a>
                 </article>
-
                 <!-- Outros projetos -->
                 <article class="project" data-project-id="2">
                     <img src="project2.jpg" alt="Projeto 2" class="project-image">
@@ -198,30 +108,14 @@
                     <p>Uma breve descrição do projeto. Este projeto envolve...</p>
                     <a href="#" class="view-more">Ver Mais</a>
                 </article>
-
-                <!-- Mais exemplos -->
-                <article class="project" data-project-id="3">
-                    <img src="project3.jpg" alt="Projeto 3" class="project-image">
-                    <h2>Título do Projeto 3</h2>
-                    <p>Uma breve descrição do projeto. Este projeto envolve...</p>
-                    <a href="#" class="view-more">Ver Mais</a>
-                </article>
-
-                <article class="project" data-project-id="4">
-                    <img src="project4.jpg" alt="Projeto 4" class="project-image">
-                    <h2>Título do Projeto 4</h2>
-                    <p>Uma breve descrição do projeto. Este projeto envolve...</p>
-                    <a href="#" class="view-more">Ver Mais</a>
-                </article>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé com Seções e Redes Sociais -->
+    <!-- Rodapé -->
     <footer id="footer">
         <div class="footer_area">
-            
-            <!-- Redes Sociais -->
+            <!-- Links para redes sociais -->
             <div class="footer_item area1">
                 <div class="footer_social">
                     <a href="https://x.com/gbharbor" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -230,10 +124,10 @@
                     <a href="https://www.tiktok.com/@maryana_bp" target="_blank"><i class="fab fa-tiktok"></i></a>
                     <a href="https://www.instagram.com/gbharbor/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.youtube.com/@devharbor" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>                
+                </div>              
             </div>
 
-            <!-- Direitos Autorais -->
+            <!-- Direitos autorais -->
             <div class="footer_item area2">
                 <div class="area_area2">
                     Todos os direitos reservados &COPY;gbharbor 
@@ -252,9 +146,12 @@
             </div>
         </div>
     </footer>    
+
+    <!-- Botão para voltar ao topo -->
     <button id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </button>    
+
     <!-- Script principal para interações -->
     <script src="script.js"></script>
 </body>
