@@ -34,7 +34,7 @@
                 <ul class="navbar-list">
                     <!-- Links para as seções principais -->
                     <li><a href="#home" class="navbar-link" data-nav-toggler>Home</a></li>     
-                    <li><a href="#posts" class="navbar-link" data-nav-toggler>Posts</a></li>
+                    <li><a href="#posts" class="navbar-link" data-nav-toggler>Sobre</a></li>
                     <li><a href="#projects" class="navbar-link" data-nav-toggler>Projects</a></li>
                 </ul>
                 
@@ -65,7 +65,7 @@
                         <span class="typing-effect typing-landing">welcome!</span>
                     </h1>
                     <p class="hero-text">
-                        Hey! Sou Guilherme Porto, estudante de Engenharia de Software no segundo semestre, apaixonado por tecnologia e desenvolvimento web. Tenho experiência em HTML, CSS, SASS e JavaScript, além de conhecimentos em C/C++. Busco sempre aprender e colaborar em projetos inovadores.
+                        Hey ! Sou Guilherme Porto, estudante de Engenharia de Software, desenvolvedor Full Stack com experiência em HTML, CSS, SASS, JavaScript e conhecimentos em C/C++. 
                     </p>
 
                     <!-- Botão para rolar até o rodapé -->
@@ -85,31 +85,64 @@
 
         <!-- Seção de Posts -->
         <section id="posts" class="container">
-            <h2 class="typing-effect typing-static-posts posts-title">Posts_</h2>
+            <h2 class="typing-effect typing-static-posts posts-title">Sobre_</h2>
             <!-- Contêiner onde os posts serão renderizados dinamicamente -->
-            <div id="postContainer"></div>
+            <div id="postContainer">
+            </div>
         </section>
 
         <!-- Seção de Projetos -->
-        <section id="projects" class="projects-container">
-            <h2 class="typing-effect typing-static-projects">Projects_</h2>
-            <div class="projects">
-                <!-- Projetos exibidos dinamicamente -->
-                <article class="project" data-project-id="1">
-                    <img src="project1.jpg" alt="Projeto 1" class="project-image">
-                    <h2>Título do Projeto 1</h2>
-                    <p>Uma breve descrição do projeto. Este projeto envolve...</p>
-                    <a href="#" class="view-more">Ver Mais</a>
-                </article>
-                <!-- Outros projetos -->
-                <article class="project" data-project-id="2">
-                    <img src="project2.jpg" alt="Projeto 2" class="project-image">
-                    <h2>Título do Projeto 2</h2>
-                    <p>Uma breve descrição do projeto. Este projeto envolve...</p>
-                    <a href="#" class="view-more">Ver Mais</a>
-                </article>
+<!-- Seção de Projetos -->
+<section id="projects" class="projects-container">
+    <h2 class="typing-effect typing-static-projects">Projects_</h2>
+    <div class="projects">
+        <!-- Primeiro Projeto -->
+        <article class="project" data-project-id="1">
+            <h2>Aplicativo de Clima</h2>
+            <!-- Container do carrossel -->
+            <div class="carousel">
+                <div class="carousel-images">
+                    <!-- Âncoras nas imagens -->
+                    <a href="http://127.0.0.1:5500/projects/pro_weather/weather.html" target="_blank" class="project-image-link">
+                        <img src="./projects/pro_weather/weather_assets/desktop2.png" alt="Projeto 1 - Slide 1" class="project-image">
+                    </a>
+                    <a href="http://127.0.0.1:5500/projects/pro_weather/weather.html" target="_blank" class="project-image-link">
+                        <img src="./projects/pro_weather/weather_assets/desktop1.png" alt="Projeto 1 - Slide 2" class="project-image">
+                    </a>
+                </div>
+                <!-- Controles do carrossel -->
+                <button class="carousel-control prev" aria-label="Slide anterior" type="button" role="button">❮</button>
+                <button class="carousel-control next" aria-label="Próximo slide" type="button" role="button">❯</button>
             </div>
-        </section>
+            <p>Este é um aplicativo de clima desenvolvido para exibir informações meteorológicas atualizadas de forma simples e responsiva...</p>
+            <a href="#" class="view-more">Ver Mais</a>
+        </article>
+
+        <!-- Outro Projeto -->
+        <article class="project" data-project-id="2">
+            <h2>projeto 2 teste</h2>
+            <!-- Container do carrossel -->
+            <div class="carousel">
+                <div class="carousel-images">
+                    <!-- Âncoras nas imagens -->
+                    <a href="http://127.0.0.1:5500/projects/pro_weather/weather.html" target="_blank" class="project-image-link">
+                        <img src="./projects/pro_weather/weather_assets/desktop2.png" alt="Projeto 2 - Slide 1" class="project-image">
+                    </a>
+                    <a href="http://127.0.0.1:5500/projects/pro_weather/weather.html" target="_blank" class="project-image-link">
+                        <img src="./projects/pro_weather/weather_assets/desktop1.png" alt="Projeto 2 - Slide 2" class="project-image">
+                    </a>
+                </div>
+                <!-- Controles do carrossel -->
+                <button class="carousel-control prev" aria-label="Slide anterior" type="button" role="button">❮</button>
+                <button class="carousel-control next" aria-label="Próximo slide" type="button" role="button">❯</button>
+            </div>
+            <p>Este é outro projeto desenvolvido com foco em performance...</p>
+            <a href="#" class="view-more">Ver Mais</a>
+        </article>
+    </div>
+</section>
+
+
     </main>
 
     <!-- Rodapé -->
@@ -130,7 +163,7 @@
             <!-- Direitos autorais -->
             <div class="footer_item area2">
                 <div class="area_area2">
-                    Todos os direitos reservados &COPY;gbharbor 
+                    2024 &COPY;gbharbor 
                     <a href="https://www.linkedin.com/in/drportox/" target="_blank" id="saiba_mais">Saiba Mais</a>
                 </div>
             </div>

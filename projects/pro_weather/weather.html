@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt"> <!-- Define o idioma do conteúdo como português -->
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Garante compatibilidade com IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura o layout responsivo -->
+    <title>Weather</title> <!-- Título da página -->
+    <link rel="stylesheet" href="weather.css" /> <!-- Vincula o arquivo de estilos -->
+</head>
+<body>
+<main>
+    <!-- Título principal da página -->
+    <h1>Weather</h1>
+
+    <!-- Formulário de busca -->
+    <form class="busca">
+        <!-- Campo de entrada para digitar o nome da cidade -->
+        <input type="search" id="searchInput" placeholder="Digite a cidade" />
+        <!-- Botão para iniciar a busca -->
+        <button type="button">Buscar</button>
+    </form>
+
+    <!-- Exibe mensagens de aviso como "Carregando..." ou "Cidade não encontrada" -->
+    <div class="aviso"></div>
+
+    <!-- Caixa de resultados onde as informações do clima serão exibidas -->
+    <div class="resultado">
+        <!-- Título com o nome da cidade e do país -->
+        <div class="titulo">--</div>
+
+        <div class="info">
+            <!-- Imagem representando o clima atual -->
+            <div class="temp">
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Ícone de clima">
+            </div>
+        
+            <!-- Bloco inferior contendo temperatura e vento -->
+            <div class="bloco-inferior">
+                <!-- Bloco que exibe a temperatura -->
+                <div class="temp">
+                    <div class="tempTitulo">Temperatura</div>
+                    <div class="tempInfo">-- <sup>ºC</sup></div>
+                </div>
+        
+                <!-- Bloco que exibe a velocidade do vento -->
+                <div class="vento">
+                    <div class="ventoTitulo">Vento</div>
+                    <div class="ventoInfo">-- <span>km/h</span></div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</main>
+
+<!-- Rodapé da página -->
+<footer class="footer">
+    <!-- Links para redes sociais -->
+    <div class="footer-links">
+        <a href="https://www.linkedin.com/in/gbharbor/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/gbharbor" target="_blank">GitHub</a>
+    </div>
+    <!-- Informações de copyright -->
+    <p class="copyright">© 2024 gbharbor.</p>
+</footer>
+
+<!-- Importa o arquivo JavaScript -->
+<script src="weather.js"></script>
+</body>
+</html>

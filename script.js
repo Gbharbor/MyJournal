@@ -26,7 +26,7 @@ const toggleNav = () => navbar.classList.toggle("active");
 // Adiciona o evento de clique aos botões de alternância
 addEventOnElements(navTogglers, "click", toggleNav);
 
-// Fecha o Navbar caso esteja ativo (menu aberto)
+// Fecha o Navbar caso esteja ativo (menu aberto) após clicar em um link
 const closeNav = () => {
     if (navbar.classList.contains("active")) {
         navbar.classList.remove("active");
@@ -34,28 +34,27 @@ const closeNav = () => {
 };
 
 // Adiciona eventos de clique nos links do Navbar
-// Faz o scroll suave até o elemento alvo e fecha o menu
 addEventOnElements(navbarLinks, "click", (event) => {
     event.preventDefault(); // Previne o comportamento padrão do link
     const targetId = event.target.getAttribute("href"); // Obtém o ID do alvo
     const targetElement = document.querySelector(targetId); // Seleciona o alvo no DOM
 
     if (targetElement) {
-        const offset = 100; // Ajuste de deslocamento
-        const elementPosition = targetElement.offsetTop - offset; // Calcula a posição
+        const offset = 100; // Ajuste de deslocamento para header fixo
+        const elementPosition = targetElement.offsetTop - offset;
         window.scrollTo({
             top: elementPosition,
             behavior: "smooth" // Rolagem suave
         });
     }
-    closeNav(); // Fecha o menu após clicar em um link
+    closeNav(); // Fecha o menu após clicar no link
 });
 
 // ============================
 // Animação do Header ao Scroll
 // ============================
 
-// Seleciona o cabeçalho
+// Seleciona o cabeçalho para manipulação de classes
 const header = document.querySelector("[data-header]");
 
 // Adiciona a classe "active" ao Header quando o scroll passa de 100px
@@ -67,41 +66,54 @@ window.addEventListener("scroll", () => {
 // Estrutura de Dados dos Posts
 // ============================
 /**
- * Contém informações sobre os posts do blog, incluindo título, descrição, e conteúdo adicional.
+ * Contém informações sobre os posts do blog, incluindo título, descrição e conteúdo adicional.
  */
 const postsData = [
     {
         id: 1,
-        title: "Comandos Básicos do Git",
-        date: "Publicado em: 30/09/2024",
-        image: "#",
-        description: "Este post apresenta um guia rápido dos comandos mais essenciais do Git para quem está começando.",
-        extraContent: `
-        <p>Veja abaixo uma lista dos principais comandos básicos do Git, úteis para controle de versão e colaboração:</p>
-        <div class="git-command-list">
-            <div class="git-command"><code>git init</code><p>Inicia um novo repositório Git no diretório atual.</p></div>
-            <div class="git-command"><code>git clone [url]</code><p>Clona um repositório remoto para o seu diretório local.</p></div>
-            <div class="git-command"><code>git add [arquivo]</code><p>Adiciona um arquivo específico ao staging, preparando-o para o commit.</p></div>
-            <div class="git-command"><code>git commit -m "mensagem"</code><p>Salva as mudanças no repositório local com uma mensagem descritiva.</p></div>
+        title: "Principais Tecnologias:",
+        date: "Publicado em: 19/11/2024",
+        description:  `
+        <div class="technologies-icons">
+            <i class="fab fa-js-square" style="color: #f7df1e;" title="JavaScript"></i>
+            <i class="fab fa-html5" style="color: #e34f26;" title="HTML"></i>
+            <i class="fab fa-css3-alt" style="color: #2965f1;" title="CSS"></i>
+            <i class="fab fa-cuttlefish" style="color: #00599c;" title="C++/C"></i>
+            <i class="fab fa-git-alt" style="color: #f34f29;" title="Git"></i>
         </div>
-        <p>Para mais detalhes, consulte a <a href="https://git-scm.com/doc" target="_blank">documentação oficial do Git</a>.</p>`
+        `,
+        extraContent: `
+        <p>Exemplos de projetos que podem ser criados com essas tecnologias:</p>
+        <div class="projects-list-container">
+            <ul class="projects-list">
+                <li>
+                    <i class="fas fa-clock" style="color: #4a90e2;"></i>
+                    Relógio Digital 
+                </li>
+                <li>
+                    <i class="fas fa-calculator" style="color: #f7df1e;"></i>
+                    Calculadora Simples
+                </li>
+                <li>
+                    <i class="fas fa-gamepad" style="color: #e34f26;"></i>
+                    Jogo da Memória.
+                </li>
+                <li>
+                    <i class="fas fa-images" style="color: #2965f1;"></i>
+                    Galeria com Filtros
+                </li>
+                <li>
+                    <i class="fas fa-tv" style="color: #1f4b8e;"></i>
+                    Clonagem de Paginas.
+                </li>
+            </ul>
+        </div>
+        `
+        
+        
+
     },
-    {
-        id: 2,
-        title: "GitHub - Software Engineering",
-        date: "Publicado em: 01/10/2024",
-        image: "#",
-        description: "Melhores repositórios no GitHub para estudar Ciência da Computação ou Engenharia de Software.",
-        extraContent: `<p>Uma análise dos repositórios mais úteis para engenheiros de software.</p>`
-    },
-    {
-        id: 3,
-        title: "Introdução ao JavaScript",
-        date: "Publicado em: 05/10/2024",
-        image: "#",
-        description: "Uma introdução ao JavaScript e seus principais conceitos para iniciantes.",
-        extraContent: `<p>Este post cobre os conceitos básicos de JavaScript.</p>`
-    }
+    // Outros posts
 ];
 
 // ============================
@@ -124,8 +136,6 @@ function renderPosts() {
         postElement.setAttribute("data-post-id", post.id);
         postElement.innerHTML = `
             <h2>${post.title}</h2>
-            <p class="date">${post.date}</p>
-            <img src="${post.image}" alt="${post.title}" class="post-image">
             <p>${post.description}</p>
             <div class="extra-content">${post.extraContent}</div>
             <a href="#" class="read-more">Leia mais <span>▼</span></a>
@@ -144,10 +154,7 @@ function renderPosts() {
             } else {
                 extraContent.classList.remove('show');
                 readMoreButton.innerHTML = 'Leia mais <span>▼</span>';
-                postElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                postElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
 
@@ -200,6 +207,41 @@ function observePosts() {
 
     posts.forEach(post => observer.observe(post));
 }
+
+// ============================
+// Carrossel para Projetos
+// ============================
+/**
+ * Adiciona funcionalidade de navegação ao carrossel.
+ */
+const carousels = document.querySelectorAll('.carousel');
+
+carousels.forEach((carousel) => {
+    const images = carousel.querySelectorAll('.carousel-images .project-image-link');
+    const prevButton = carousel.querySelector('.carousel-control.prev');
+    const nextButton = carousel.querySelector('.carousel-control.next');
+    const totalSlides = images.length;
+    let currentSlide = 0;
+
+    // Atualiza o slide visível
+    function updateSlide() {
+        const offset = -(currentSlide * 100);
+        const carouselImages = carousel.querySelector('.carousel-images');
+        carouselImages.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Navegação "Próximo"
+    nextButton.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlide();
+    });
+
+    // Navegação "Anterior"
+    prevButton.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlide();
+    });
+});
 
 // ============================
 // Inicialização Geral

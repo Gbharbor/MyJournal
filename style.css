@@ -5,9 +5,13 @@
     --primary-hover-color: rgb(6, 0, 200);
     --text-color: #000;
     --button-color:#6aa9ff;
-    --button-hover-bg:  rgb(6, 0, 200);
+    --button-hover-bg:  #0600c8;
     --footer-bg: rgb(26, 42, 79);
     --footer-text-color: #fff;
+    --extra-bg: #f8f9fa;
+    --border-color: #ddd;
+    --code-bg: #f4f6f9;
+    --code-color: #1f4b8e;
 }
 /* Reset */
 *,
@@ -24,7 +28,7 @@ body {
     overflow-x: hidden;/*remove a brra de rolagem horizontal*/
     overflow-y: scroll; /* Garante que a rolagem vertical funcione sem exibir a barra */
     font-family: 'Fira Code', monospace;
-    background-color: var(--background-color);
+    background-color: #fff;
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -115,7 +119,7 @@ body::-webkit-scrollbar {
     left: 0;
     width: 100%;
     padding: 24px;
-    background-color: var(--background-color);
+    background-color:#fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra para efeito 3D */
     z-index: 10;
     display: flex;
@@ -235,6 +239,7 @@ body::-webkit-scrollbar {
 
 /* Hero Section */
 .hero {
+    background-color: #fff;
     padding-top: 100px;
     display: flex;
     align-items: center;
@@ -327,7 +332,7 @@ body::-webkit-scrollbar {
     text-align: center; /* Centraliza o texto */
     font-weight: 400; /* Peso leve para o texto */
     font-size: 1.5rem; /* Tamanho do título */
-    color: var(--primary-color); /* Cor do texto definida na variável */
+    color: #6aa9ff; /* Cor do texto definida na variável */
     margin-top: 60px; /* Espaçamento acima do título */
     margin-bottom: 20px; /* Espaçamento abaixo do título */
 }
@@ -344,142 +349,185 @@ body::-webkit-scrollbar {
    =================== */
 
 /* Estilo geral de cada post */
+/* ESTILO BASE DOS POSTS */
 .post {
-    opacity: 0; /*invisivel*/
-    font-size: 0.9rem; /* Tamanho da fonte */
-    color: var(--text-color); /* Cor do texto */
-    background: #f8f9fa; /* Fundo claro */
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 20px; /* Espaçamento interno */
-    margin-bottom: 20px; /* Espaçamento inferior entre os posts */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para efeito 3D */
+    display: flex;
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    align-items: left; /* Alinha o conteúdo à esquerda */
+    text-align: left; /* Alinha o texto à esquerda */
+    gap: 10px; /* Espaçamento entre os elementos */
+    padding: 10px; /* Espaçamento interno */
+    background: #fff; /* Fundo claro */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    margin: 20px auto; /* Espaçamento inferior e centralização */
+    max-width: 1000px; /* Largura máxima para os posts */
+    opacity: 0; /* Invisível inicialmente */
     transform: translateY(50px); /* Começa deslocado para baixo */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animação ao aparecer */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.4s ease-in-out; /* Suaviza transições */
 }
 
-/* Exibe o post ao rolar a página */
+/* EXIBIÇÃO DOS POSTS AO ROLAR A PÁGINA */
 .post.show {
-    opacity: 1; /* Torna o post visível */
+    opacity: 1; /* Torna visível */
     transform: translateY(0); /* Remove o deslocamento */
 }
 
-/* Efeito de hover nos posts */
+/* EFEITO DE HOVER NOS POSTS */
 .post:hover {
-    background-color: #ffffff; /* Altera o fundo para branco */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.06); /* Sombra mais sutil */
+    transition: box-shadow 0.5s ease-in-out; /* Suaviza a transição */
 }
-/* Container dos comandos Git */
-.git-command-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-/* Estilo de cada bloco de comando */
-.git-command {
-    background-color: #f4f4f9; /* Fundo claro para destaque */
-    padding: 15px;
-    border-left: 4px solid var(--primary-color); /* Barra colorida à esquerda */
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-/* Estilo do código do comando */
-.git-command code {
-    display: block;
-    font-family: 'Fira Code', monospace; /* Fonte monoespaçada */
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-/* Descrição do comando */
-.git-command p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--text-color); /* Cor padrão do texto */
-}
-
 /* Estilo do link dentro do post */
 .post a {
     color: var(--secundary-color);
-    text-decoration: underline;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .post a:hover {
     color: var(--primary-color);
 }
-
-
-/* Estilo para imagens dos posts */
-.post img {
-    display: block; /* Garante que a imagem seja tratada como bloco */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    max-width: 100%; /* Limita a largura da imagem */
+/* Estilização para as imagens dos posts */
+.post .post-image {
+    width: 100%; /* A imagem ocupa toda a largura disponível */
+    max-width: 300px; /* Largura máxima para imagens */
     height: auto; /* Mantém a proporção */
+    object-fit: cover; /* Ajusta a imagem para cobrir o espaço disponível */
+    border-radius: 8px; /* Bordas arredondadas */
+    /*box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+    display: block; /* Garante que a imagem seja tratada como bloco */
 }
 
-/* ================================
-   Conteúdo Extra dos Posts
-   ================================ */
 
-/* Conteúdo adicional dos posts (oculto por padrão) */
+
+/* ====================
+   Conteúdo Extra dos Posts
+   ==================== */
+
+/* Conteúdo adicional oculto inicialmente */
 .post .extra-content {
     max-height: 0; /* Altura inicial zero */
-    opacity: 0; /* Transparência total */
-    overflow: hidden; /* Esconde conteúdo que ultrapassa os limites */
-    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease; /* Animação ao expandir/ocultar */
+    opacity: 0; /* Transparente */
+    overflow: hidden; /* Esconde conteúdo além do limite */
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease; /* Animação suave */
 }
 
-/* Exibe o conteúdo extra ao expandir */
+/* Exibe o conteúdo ao expandir */
 .post .extra-content.expanded,
 .extra-content.show {
-    display: block; /* Mostra o conteúdo */
-    max-height: none; /* Define uma altura máxima */
+    max-height: 500px; /* Define uma altura máxima ao expandir */
     opacity: 1; /* Torna visível */
     padding-top: 5px; /* Adiciona espaçamento superior */
 }
-/* Estilo do conteúdo extra do post */
+
+/* Estilo geral do conteúdo extra */
 .extra-content {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, opacity 0.5s ease; /* Transição suave */
+    background-color:#fff; /* Fundo claro */
+    /*border: 1px solid var(--border-color); /* Borda leve */
+    /*border-radius: 8px; /* Bordas arredondadas */
+    padding: 15px; /* Espaçamento interno */
+    margin-top: 15px; /* Espaçamento superior */
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    overflow: hidden; /* Esconde conteúdo extra ao ocultar */
 }
-/* ====================
-   Botão "Leia Mais"
-   ==================== */
+/*Container dos Icons das tecnologias que conheco*/
+/* Container para os ícones */
+.technologies-icons {
+    display: flex; /* Exibe os ícones em linha */
+    justify-content: center; /* Centraliza os ícones horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 50px; /* Espaçamento entre os ícones */
+    margin-top: 50px; /* Espaçamento superior */
+}
+/* Estilo para os ícones */
+.technologies-icons i {
+    font-size: 80px; /* Aumenta o tamanho dos ícones */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Transições suaves */
+    cursor: pointer; /* Cursor de mão ao passar */
+}
+/* Efeito de hover nos ícones */
+.technologies-icons i:hover {
+    transform: scale(1.3); /* Aumenta o ícone levemente no hover */
+    filter: brightness(1.2); /* Aumenta o brilho no hover */
+}
 
-/* Estilo geral do botão "Leia mais" */
+/*Tech interessantes:*/
+/* Container da lista de projetos */
+.projects-list-container {
+    margin-top: 15px; /* Espaçamento superior */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+}
+
+/* Lista de projetos */
+.projects-list {
+    list-style: none; /* Remove marcadores padrão */
+    padding-left: 0; /* Remove recuo padrão */
+    margin: 0; /* Remove margens padrão */
+    display: flex; /* Exibe os itens em linha */
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    gap: 15px; /* Espaçamento entre os itens */
+    justify-content: center; /* Centraliza os itens */
+}
+
+/* Itens da lista */
+.projects-list li {
+    display: flex; /* Flexbox para alinhamento */
+    align-items: center; /* Centraliza os itens verticalmente */
+    gap: 10px; /* Espaçamento entre ícone e texto */
+    padding: 20px 10px; /* Espaçamento interno */
+    border: 1px solid #eee; /* Borda leve */
+    border-radius: 8px; /* Bordas arredondadas */
+    background: #fff; /* Fundo branco */
+    color: #333; /* Cor do texto */
+    font-size: 1rem; /* Tamanho do texto */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Animação suave */
+    flex: 0 0 calc(33.333% - 20px); /* Responsividade com 3 colunas */
+    text-align: left; /* Alinhamento do texto */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Sombra leve */
+}
+
+/* Remove borda do último item */
+.projects-list li:last-child {
+    border-bottom: none;
+}
+
+/* Ícones nos itens da lista */
+.projects-list li i {
+    font-size: 1.5rem; /* Tamanho do ícone */
+    color: var(--primary-color); /* Cor do ícone */
+}
+
+/* Hover nos itens */
+.projects-list li:hover {
+    background-color: #fff; /* Fundo leve no hover */
+    transform: translateY(-2px); /* Leve elevação */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+}
+/* Botão "Leia Mais" */
 .read-more {
-    display: inline-block; /* Exibe como um bloco em linha */
-    margin-top: 10px; /* Espaçamento superior */
-    font-size: 0.9rem; /* Tamanho do texto */
-    font-weight: 300; /* Peso leve para o texto */
-    color: var(--secundary-color); /* Cor padrão do botão */
-    text-decoration: none; /* Remove o sublinhado */
-    cursor: pointer; /* Indica interatividade */
-    transition: color 0.4s ease; /* Animação suave para mudança de cor */
+    display: inline-block; /* Exibe como bloco em linha */
+    font-size: 0.9rem; /* Tamanho da fonte */
+    color: var(--secundary-color); /* Cor padrão */
+    text-decoration: none; /* Remove sublinhado */
+    cursor: pointer; /* Cursor de mão */
+    transition: color 0.4s ease; /* Transição suave */
 }
-
-/* Efeito ao passar o mouse no botão */
 .read-more:hover {
-    color: var(--primary-color); /* Muda para azul principal no hover */
+    color: var(--primary-color); /* Muda cor no hover */
 }
-
-/* Estilo para a seta ao lado do texto */
 .read-more span {
-    font-size: 0.8rem; /* Reduz o tamanho da seta */
-    margin-left: 3px; /* Espaçamento entre o texto e a seta */
+    transition: transform 0.4s ease; /* Animação para rotação */
+    font-size: 0.8rem; /* Tamanho menor para seta */
+    margin-left: 3px; /* Espaço entre texto e seta */
+}
+.read-more.expanded span {
+    transform: rotate(180deg); /* Seta rotacionada */
+    transition: transform 0.4s ease; /* Suaviza rotação */
 }
 
-/* Estilo para o botão expandido */
-.read-more.expanded span {
-    transform: rotate(180deg); /* Rotaciona a seta para cima */
-}
 /* =======================
         Area "Projects"
    ======================= */
@@ -502,22 +550,26 @@ body::-webkit-scrollbar {
     gap: 20px; /* Espaço entre os cards */
 }
 
-/* Estilo dos cards de projeto */
+/* Container do projeto */
 .project {
-    background: #f8f9fa; /* Cor de fundo inicial */
-    border-radius: 5px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 1s linear, box-shadow 0.3s ease, transform 0.3s ease; /* Transição suave */
-    height: 350px; /* Altura fixa para uniformidade */
-    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    gap: 15px; /* Espaçamento entre os elementos */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    margin: 20px auto; /* Centraliza o projeto dentro da section */
+    max-width: 800px; /* Define uma largura máxima para o projeto */
+    transition: box-shadow 0.4s ease, transform 0.4s ease; /* Suaviza a transição de sombra e movimento */
 }
 
 /* Efeito de hover para o fundo dos projetos */
 .project:hover {
-    background-color: #ffffff; /* Altera o fundo para branco */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+    /*background-color: #ffffff; /* Altera o fundo para branco */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15); /* Nova sombra */
+    transform: translateY(-2px); /* Leve deslocamento para cima */
 }
 
 /* Ajuste de rolagem para o texto interno em excesso */
@@ -530,17 +582,90 @@ body::-webkit-scrollbar {
 /* Estilo do título do projeto */
 .project h2 {
     font-size: 1.4rem;
-    color: var(--primary-color);
+    color: #6aa9ff;
     font-weight: 500; /* Peso ajustado */
 }
 
 /* Estilo para a imagem do projeto */
-.project-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
+.project-image-link {
+    flex: 0 0 100%; /* Cada âncora ocupa 100% da largura do container */
+    display: flex; /* Para centralizar as imagens dentro da âncora */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
 }
+/* Imagens */
+.project-image {
+    width: 100%; /* Ajusta a largura ao container */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; /* Ajusta o conteúdo ao container */
+}
+
+/*Carrosel modo slide*/
+/* Carrossel */
+.carousel {
+    position: relative;
+    width: 100%; /* Ocupa toda a largura do container pai */
+    max-width: 700px; /* Largura máxima */
+    overflow: hidden; /* Oculta imagens fora do container visível */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Container das imagens do carrossel */
+.carousel-images {
+    display: flex; /* Exibe as imagens lado a lado */
+    transition: transform 0.5s ease-in-out; /* Transição suave ao alternar imagens */
+    width: 100%; /* Ocupa 100% do espaço do carrossel */
+}
+
+/* Imagens do carrossel */
+.carousel-images img {
+    width: 100%; /* Ajusta a imagem ao tamanho do carrossel */
+    height: auto; /* Mantém a proporção */
+    display: block; /* Garante que as imagens fiquem em bloco */
+    object-fit: cover; /* Ajusta o tamanho da imagem ao container */
+}
+
+
+/* Controles do carrossel */
+.carousel-control {
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Alinha ao centro */
+    background: transparent; /* Fundo transparente */
+    color: #fff; /* Cor do ícone */
+    border: none; /* Remove borda */
+    font-size: 40px; /* Tamanho maior do ícone */
+    cursor: pointer; /* Cursor de mão */
+    padding: 10px 3px; /* Espaçamento interno */
+    z-index: 2; /* Garante que o botão fique acima das imagens */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra inicial */
+    transition: all 0.2s ease; /* Suaviza transições */
+}
+
+/* Estilo no hover */
+.carousel-control:hover {
+    /*color: #4a90e2; /* Muda a cor do ícone ao passar o mouse */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Aumenta a sombra no hover */
+    transform: translateY(-50%) scale(1.05); /* Leve aumento no hover */
+}
+
+/* Estilo ao clicar (efeito 3D) */
+.carousel-control:active {
+    color: var(--button-color); /* Cor diferente ao clicar */
+    transform: translateY(-47%) scale(0.95); /* Leve redução no tamanho e depressão */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra reduzida para simular profundidade */
+}
+
+/* Botão anterior (esquerda) */
+.carousel-control.prev {
+    left: 0px; /* Espaçamento da borda esquerda */
+}
+
+/* Botão próximo (direita) */
+.carousel-control.next {
+    right: 0px; /* Espaçamento da borda direita */
+}
+
 
 /* Botão "Ver Mais" nos projetos */
 .view-more {
@@ -569,12 +694,13 @@ body::-webkit-scrollbar {
    ======================= */
 /* Footer com Gradiente */
 footer {
-    background: linear-gradient(45deg, var(--secundary-color), var(--primary-color)); /* Gradiente de azul escuro para azul médio */
+    background: #0600c8 ;
     color: var(--primary-color); /* Cor do texto */
     text-align: center;
     padding: 15px;
     width: 100%;
     margin-top: 40px; /* Espaço entre a seção de projetos e o rodapé */
+    border-top: 1px solid #ccc;
 }
 
 /* Para garantir que as áreas internas do footer mantenham o estilo do gradiente */
@@ -588,20 +714,17 @@ footer {
     font-family: 'Fira Code', monospace;
 }
 
-
 .footer_item {
     flex: 1;
     text-align: center;
 }
-
 /*Redes Sociais no Footer*/
 .footer_social a {
     color: var(--footer-text-color);
     font-size: 2rem; /* Tamanho adequado para os ícones */
-    margin: 0 10px;
+    margin: 10 10px;
     transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .footer_social a:hover {
     color: var(--primary-color);
     transform: scale(1.01); /* Aumenta o ícone no hover */
@@ -610,7 +733,7 @@ footer {
 /* Ícones de Redes Sociais no Footer */
 .footer_social a i {
     color: var(--footer-text-color);
-    font-size: 1.5rem; /* Tamanho adequado para os ícones */
+    font-size: 1.9rem; /* Tamanho adequado para os ícones */
     margin: 0 10px;
     transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -702,9 +825,9 @@ footer {
     width: 100%;
     max-width: 150px;
     padding: 10px 20px;
-    background-color: var(--button-color); /* Cor do botão */
+    background-color: #0600c8; /* Cor do botão */
     color: var(--background-color); /* Texto branco */
-    border: 1px solid var(--button-color); /* Borda combinando com a cor padrão */
+    border: 1px solid #d3d3d3; /* Borda combinando com a cor padrão */
     border-radius: 5px;
     font-size: 1em;
     font-family: 'Fira Code', monospace;
@@ -769,25 +892,12 @@ footer {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra reduzida */
 }
 
+/* Responsividade e Animações */
 @media (max-width: 1517px) {
     .footer_item.area3 {
         flex-direction: column; /* Alinha os campos e o botão verticalmente */
         gap: 10px; /* Espaço entre os campos */
         align-items: stretch; /* Garante que os elementos ocupem toda a largura */
-    }
-
-    .area3 input[type="text"],
-    .area3 input[type="email"],
-    .area3 .btn {
-        width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
-    }
-}
-/* Responsividade e Animações */
-@media (max-width: 1517px) {
-    .footer_item.area3 {
-        flex-direction: column;
-        gap: 10px;
-        align-items: stretch;
     }
 
     .area3 input[type="text"],
@@ -808,7 +918,7 @@ footer {
     100% { width: 0; }
 }
 
-@media (max-width: 966px) {
+@media (max-width: 1135px) {
     #posts {
         padding-top: 80px;
     }
@@ -835,6 +945,8 @@ footer {
         width: 70%;
     }
 }
+
+
 
 /* Landing Page Responsiva */
 @media (max-width: 800px) {
@@ -867,6 +979,26 @@ footer {
     .hero-text {
         font-size: 1rem;
         line-height: 1.5;
+    }
+    .extra-content li {
+        padding: 8px 12px; /* Reduz o espaçamento interno */
+    }
+    .technologies-icons {
+        gap: 30px; /* Reduz o espaçamento entre os ícones */
+        margin-top: 30px; /* Ajusta o espaçamento superior */
+    }
+
+    .technologies-icons i {
+        font-size: 60px; /* Reduz o tamanho dos ícones */
+    }
+    .projects-list li {
+        flex: 0 0 calc(50% - 15px); /* Ajusta para 2 colunas */
+        font-size: 0.9rem; /* Reduz tamanho do texto */
+        padding: 8px 10px; /* Reduz o espaçamento */
+    }
+
+    .projects-list li i {
+        font-size: 1.2rem; /* Reduz o tamanho dos ícones */
     }
 }
 
@@ -926,6 +1058,29 @@ footer {
     .typing-landing {
         font-size: 4rem;
     }
+    
+    .technologies-icons {
+        gap: 20px; /* Reduz o espaçamento entre os ícones */
+        flex-wrap: wrap; /* Permite que os ícones quebrem para a próxima linha */
+        margin-top: 30px; /* Reduz o espaçamento superior */
+    }
+
+    .technologies-icons i {
+        font-size: 50px; /* Reduz o tamanho dos ícones */
+    }
+    .projects-list li {
+        flex: 0 0 100%; /* Cada item ocupa toda a largura */
+        font-size: 0.8rem; /* Texto menor */
+        padding: 6px 8px; /* Reduz ainda mais o espaçamento */
+    }
+
+    .projects-list li i {
+        font-size: 1rem; /* Ícones menores */
+    }
+
+    .projects-list-container {
+        padding: 15px; /* Reduz o espaçamento interno */
+    }
 }
 
 @media (max-width: 420px) {
@@ -983,9 +1138,19 @@ footer {
     .area3 .btn {
         width: 100%;
     }
+    
+    
 }
 
 @media (max-width: 300px) {
+    .technologies-icons i {
+        font-size: 45px; /* Reduz o tamanho dos ícones */
+    }
+
+    .technologies-icons {
+        gap: 10px; /* Reduz o espaçamento entre os ícones */
+        margin-top: 30px; /* Reduz o espaçamento superior */
+    }
     .typing-landing {
         font-size: 2.7rem;
     }

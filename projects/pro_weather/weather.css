@@ -1,0 +1,278 @@
+/* RESET PADRÃO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ESTILOS GERAIS */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o conteúdo ocupe a altura total da tela */
+    background: linear-gradient(135deg, #4a90e2, #35495e);
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFF;
+}
+
+/* Conteúdo Principal */
+main {
+    flex: 1; /* Faz com que o main ocupe todo o espaço disponível */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Título Principal */
+h1 {
+    font-size: 36px;
+    margin: 20px 0 50px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* FORMULÁRIO DE BUSCA */
+.busca {
+    display: flex;
+    width: 360px; /* Largura padrão */
+    max-width: 100%; /* Garante que não ultrapasse a tela */
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+    gap: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.busca:focus-within {
+    padding: 8px;
+    width: 365px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+/* Campo de Entrada */
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+#searchInput::placeholder {
+    color: #aaa;
+    opacity: 1;
+}
+
+/* Botão de Busca */
+button {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    background-color: #1f4b8e;
+    color: #FFF;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.1s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #15376b;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* CAIXA DE RESULTADOS */
+.resultado {
+    width: 360px;
+    display: none;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.resultado:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+/* Título na Caixa de Resultados */
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px;
+    color: #FFF;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 10px;
+}
+
+/* INFORMAÇÕES DE CLIMA */
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Imagem do Clima */
+.temp img {
+    width: 170px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+/* Bloco Inferior: Temperatura e Vento */
+.bloco-inferior {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Estilo dos Blocos */
+.temp, .vento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.tempTitulo, .ventoTitulo {
+    font-size: 20px;
+    color: #ddd;
+}
+
+.tempInfo, .ventoInfo {
+    font-size: 35px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.tempInfo sup, .ventoInfo span {
+    font-size: 14px;
+}
+
+/* AVISO */
+.aviso {
+    color: #FFF;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+}
+/*Footer*/
+.footer {
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Linha sutil no topo */
+    color: #FFF; /* Cor do texto */
+    text-align: center; /* Centraliza o conteúdo */
+    padding: 20px 10px; /* Espaçamento interno */
+    font-size: 14px; /* Tamanho da fonte */
+    width: 100%; /* Ocupa toda a largura */
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.2); /* Sombra no topo */
+}
+
+.footer p {
+    margin: 5px 0; /* Espaçamento entre os parágrafos */
+}
+
+.footer a {
+    color: #fff; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado */
+    transition: color 0.3s ease; /* Animação suave na troca de cor */
+}
+
+.footer a:hover {
+    color: #112e5b; /* Cor do link ao passar o mouse */
+}
+
+/* Estilo para links do footer em linha */
+.footer-links {
+    margin-top: 10px; /* Espaçamento acima dos links */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 15px; /* Espaçamento entre links */
+    flex-wrap: wrap; /* Permite quebra para múltiplas linhas em telas pequenas */
+}
+/* Estilo para a tag de copyright */
+.copyright {
+    margin-top: 15px; /* Espaçamento superior */
+    font-size: 11px; /* Tamanho da fonte menor */
+    color: #bab8b8; /* Cor mais discreta */
+    text-align: center;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 480px) {
+    .busca {
+        width: 260px;
+        padding: 5px;
+        height: 43px;
+        gap: 5px;
+    }
+
+    .busca:focus-within {
+        width: 265px;
+        padding: 5px;
+    }
+
+    #searchInput {
+        font-size: 13px;
+        padding: 5px;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .resultado {
+        width: 260px;
+        padding: 10px;
+    }
+
+    .info {
+        gap: 5px;
+    }
+
+    .bloco-inferior {
+        gap: 30px;
+    }
+
+    .temp img {
+        width: 170px;
+    }
+
+    .tempTitulo, .ventoTitulo {
+        font-size: 15px;
+    }
+
+    .tempInfo, .ventoInfo {
+        font-size: 30px;
+    }
+    .footer {
+        font-size: 12px; /* Reduz o tamanho da fonte em telas pequenas */
+        padding: 15px 5px; /* Ajusta o espaçamento interno */
+    }
+
+    .footer-links {
+        gap: 10px; /* Diminui o espaçamento entre links */
+    }
+}
