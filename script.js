@@ -109,9 +109,6 @@ const postsData = [
             </ul>
         </div>
         `
-        
-        
-
     },
     // Outros posts
 ];
