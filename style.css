@@ -596,7 +596,7 @@ body::-webkit-scrollbar {
 /* Imagens */
 .project-image {
     width: 100%; /* Ajusta a largura ao container */
-    height: auto; /* Mantém a proporção da imagem */
+    height: 200px; /* Mantém a proporção da imagem */
     object-fit: cover; /* Ajusta o conteúdo ao container */
 }
 
@@ -620,7 +620,7 @@ body::-webkit-scrollbar {
 /* Imagens do carrossel */
 .carousel-images img {
     width: 100%; /* Ajusta a imagem ao tamanho do carrossel */
-    height: auto; /* Mantém a proporção */
+    height: 350px; /* Mantém a proporção */
     display: block; /* Garante que as imagens fiquem em bloco */
     object-fit: cover; /* Ajusta o tamanho da imagem ao container */
 }
