@@ -1,36 +1,51 @@
-# My Journal
+# Portfolio (Legacy Version)
 
-Bem-vindo ao meu repositório **My Journal**! Este espaço é dedicado a compartilhar minha jornada como desenvolvedor de software, com foco no aprendizado contínuo e na construção de projetos inovadores.
+Este repositório contém uma **versão inicial do meu portfólio pessoal**, desenvolvida com o objetivo de consolidar conhecimentos em desenvolvimento web e registrar parte da minha evolução como estudante de **Engenharia Informática**.
 
-## 📝 Sobre o Repositório
+O projeto apresenta alguns dos primeiros trabalhos e experiências que desenvolvi ao longo do meu processo de aprendizagem.
 
-**My Journal** é o meu portfólio pessoal, onde documentei o progresso dos meus projetos e compartilho conhecimentos adquiridos ao longo do tempo.
+⚠️ Este não representa necessariamente meus projetos mais recentes.  
+Atualmente estou desenvolvendo uma **nova versão do portfólio**, com projetos mais completos e utilizando tecnologias que venho estudando recentemente.
 
-- **Projetos**: Aqui você encontrará exemplos de meus projetos, que ilustram minha abordagem para resolução de problemas de programação e desenvolvimento de software.
+---
 
-## 🚀 Linguagens e Tecnologias Utilizadas
+## Sobre o Projeto
 
-- **C/C++**: Usado para desenvolvimento de algoritmos e soluções de alto desempenho, com ênfase em eficiência e complexidade computacional.
-- **JavaScript**: Focado no desenvolvimento front-end, interatividade e manipulação de dados dinâmicos em tempo real.
-- **HTML & CSS**: Fundamentais para a criação de interfaces web limpas, responsivas e com excelente experiência de usuário.
+Este portfólio foi desenvolvido utilizando **HTML, CSS e JavaScript**, com foco em uma interface simples, clara e responsiva para apresentar projetos e informações básicas sobre minha trajetória.
 
-## 📂 Estrutura do Repositório
+O objetivo principal foi aplicar conceitos fundamentais de desenvolvimento web e criar uma primeira base para apresentar meu trabalho.
 
-- `/projects`: Diretório que contém projetos em desenvolvimento, cada um com uma descrição de sua fase atual e objetivos principais.
-- `/docs`: Documentação de projetos, guias e tutoriais.
-- `/scripts`: Scripts e soluções rápidas para tarefas comuns ou desafios de programação.
+---
 
-## 📲 Entre em Contato
+## Tecnologias Utilizadas
 
-Caso queira acompanhar mais sobre meu trabalho ou entrar em contato, estou disponível nas seguintes plataformas:
+- HTML5  
+- CSS3  
+- JavaScript  
 
-- [TikTok](https://www.tiktok.com/@gbharbor)
-- [YouTube](https://www.youtube.com/@devharbor)
-- [Instagram](https://www.instagram.com/gbharbor/)
+---
+
+## Evolução
+
+Atualmente estou aprofundando conhecimentos em tecnologias como:
+
+- React
+- TypeScript
+- Node.js
+- C/C++
+- Python
+
+Esses conhecimentos serão apresentados em **projetos mais recentes em um novo portfólio em desenvolvimento**.
+
+---
+
+## Autor
+
+**Guilherme Porto**  
+Estudante de Engenharia Informática
+
+---
+
+## Contato
+
 - [LinkedIn](https://www.linkedin.com/in/gbharbor)
-
----
-
-Obrigado por visitar o **My Journal**! Fique à vontade para explorar, aprender e se inspirar nos projetos que compartilho aqui.
-
----
