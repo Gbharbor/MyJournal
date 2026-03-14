@@ -1,191 +1,324 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Metadados e Configurações Básicas -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GBHarbor - Personal Blog</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GBHarbor | Portfólio Pessoal</title>
+<meta
+   name="description"
+   content="Portfólio de Guilherme Porto, estudante e desenvolvedor com experiência em HTML, CSS, JavaScript e conhecimentos em C/C++."
+/>
 
-    <!-- Pré-conexão para carregar fontes mais rapidamente -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Fontes principais do site -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Folha de estilo principal -->
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Ícones do Font Awesome para redes sociais -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link
+   href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap"
+   rel="stylesheet"
+/>
+<link
+   href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap"
+   rel="stylesheet"
+/>
+
+<link rel="stylesheet" href="./style.css" />
+<link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
-    <!-- Cabeçalho -->
-    <header class="header" data-header>
-        <div class="container">
-            <!-- Logo do site -->
-            <a href="#" class="logo">
-                <img src="./assets/images/newlogo2.png" width="50" height="50" alt="GBHarbor logo">
-            </a>
+<header class="header" data-header>
+   <div class="container">
+   <a href="#home" class="logo" aria-label="Ir para o início">
+      <img
+         src="./assets/images/newlogo2.png"
+         width="50"
+         height="50"
+         alt="Logo GBHarbor"
+      />
+   </a>
 
-            <!-- Menu de navegação -->
-            <nav class="navbar" data-navbar>
-                <ul class="navbar-list">
-                    <!-- Links para as seções principais -->
-                    <li><a href="#home" class="navbar-link" data-nav-toggler>Home</a></li>     
-                    <li><a href="#posts" class="navbar-link" data-nav-toggler>Sobre</a></li>
-                    <li><a href="#projects" class="navbar-link" data-nav-toggler>Projects</a></li>
-                </ul>
-                
-                <!-- Cartão com link para o GitHub -->
-                <div class="navbar-bottom">
-                    <div class="profile-card">
-                        <img src="./assets/images/github_git_icon_145985.png" width="30" height="30" alt="GitHub" class="profile-banner">
-                        <a target="_blank" href="https://github.com/Gbharbor"><p>GITHUB</p></a>
-                    </div>
-                </div>
-            </nav>
-            
-            <!-- Ícone para abrir/fechar o menu no mobile -->
-            <div class="menu-indicator" data-nav-toggler>
-                <span>&#9664;</span>
-            </div>
-        </div>
-    </header>
+   <nav class="navbar" data-navbar aria-label="Navegação principal">
+      <ul class="navbar-list">
+         <li><a href="#home" class="navbar-link" data-nav-toggler>Início</a></li>
+         <li><a href="#about" class="navbar-link" data-nav-toggler>Sobre</a></li>
+         <li><a href="#projects" class="navbar-link" data-nav-toggler>Projetos</a></li>
+         <li><a href="#contact" class="navbar-link" data-nav-toggler>Contacto</a></li>
+      </ul>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <!-- Seção de Boas-Vindas -->
-        <section class="hero" id="home" aria-label="home">
-            <div class="container">
-                <!-- Texto principal da seção -->
-                <div class="hero-content">
-                    <h1 class="headline section-title">
-                        <span class="typing-effect typing-landing">welcome!</span>
-                    </h1>
-                    <p class="hero-text">
-                        Hey ! Sou Guilherme Porto, estudante de Engenharia de Software, desenvolvedor Full Stack com experiência em HTML, CSS, SASS, JavaScript e conhecimentos em C/C++. 
-                    </p>
+      <div class="navbar-bottom">
+         <div class="profile-card">
+         <img
+            src="./assets/images/github_git_icon_145985.png"
+            width="30"
+            height="30"
+            alt="Ícone do GitHub"
+            class="profile-banner"
+         />
+         <a
+            href="https://github.com/Gbharbor"
+            target="_blank"
+            rel="noopener noreferrer"
+         >
+            <p>GitHub</p>
+         </a>
+         </div>
+      </div>
+   </nav>
 
-                    <!-- Botão para rolar até o rodapé -->
-                    <div class="fix-botao">
-                        <a href="#footer" id="contactBtn" class="botao">
-                            <span>CONTACT ME</span>
-                        </a>
-                    </div>                                    
-                </div>
-                
-                <!-- Imagem ilustrativa -->
-                <div class="hero-banner">
-                    <img src="./assets/images/newlogo2.png" width="350" height="350" alt="Gui Porto">
-                </div>
-            </div>
-        </section>
+   <button
+      class="menu-indicator"
+      type="button"
+      aria-label="Abrir ou fechar menu"
+      data-nav-toggler
+   >
+      <span>&#9664;</span>
+   </button>
+   </div>
+</header>
 
-        <!-- Seção de Posts -->
-        <section id="posts" class="container">
-            <h2 class="typing-effect typing-static-posts posts-title">Sobre_</h2>
-            <!-- Contêiner onde os posts serão renderizados dinamicamente -->
-            <div id="postContainer">
-            </div>
-        </section>
+<main>
+   <section class="hero" id="home" aria-label="Apresentação">
+   <div class="container">
+      <div class="hero-content">
+         <h1 class="headline section-title">
+         <span class="typing-effect typing-landing">Guilherme Porto_</span>
+         </h1>
 
-        <!-- Seção de Projetos -->
-<!-- Seção de Projetos -->
-<section id="projects" class="projects-container">
-    <h2 class="typing-effect typing-static-projects">Projects_</h2>
-    <div class="projects">
-        <!-- Primeiro Projeto -->
-        <article class="project" data-project-id="1">
-            <h2>Aplicativo de Clima</h2>
-            <!-- Container do carrossel -->
-            <div class="carousel">
-                <div class="carousel-images">
-                    <!-- Âncoras nas imagens -->
-                    <a href="/projects/pro_weather/weather.html" target="_blank" class="project-image-link">
-                        <img src="./projects/pro_weather/weather_assets/desktop2.png" alt="Projeto 1 - Slide 1" class="project-image">
-                    </a>
-                    <a href="http://127.0.0.1:5500/projects/pro_weather/weather.html" target="_blank" class="project-image-link">
-                        <img src="./projects/pro_weather/weather_assets/desktop1.png" alt="Projeto 1 - Slide 2" class="project-image">
-                    </a>
-                </div>
-                <!-- Controles do carrossel -->
-                <button class="carousel-control prev" aria-label="Slide anterior" type="button" role="button">❮</button>
-                <button class="carousel-control next" aria-label="Próximo slide" type="button" role="button">❯</button>
-            </div>
-            <p>Este é um aplicativo de clima desenvolvido para exibir informações meteorológicas atualizadas de forma simples e responsiva...</p>
-            <a href="#" class="view-more">Ver Mais</a>
-        </article>
+         <p class="hero-text">
+            Olá, sou Guilherme Porto, estudante de Engenharia Informática com interesse em engenharia de software e desenvolvimento de sistemas.
+            Tenho base sólida em C/C++ e desenvolvimento de aplicações web com React.
+            Também possuo experiência em liderança, gestão e organização de projetos.
+         </p>
 
-        <!-- Outro Projeto -->
-        <article class="project" data-project-id="2">
-            <h2>OnlineShop</h2>
-            <!-- Container do carrossel -->
-            <div class="carousel">
-                <div class="carousel-images">
-                    <!-- Âncoras nas imagens -->
-                    <a href="/projects/pro_shop/index.html" target="_blank" class="project-image-link">
-                        <img src="/projects/pro_shop/assets/img/shopic2.png" alt="Projeto 2 - Slide 1" class="project-image">
-                    </a>
-                    <a href="http://127.0.0.1:5500/projects/pro_weather/weather.html" target="_blank" class="project-image-link">
-                        <img src="/projects/pro_shop/assets/img/shopic1.png" alt="Projeto 2 - Slide 2" class="project-image">
-                    </a>
-                </div>
-                <!-- Controles do carrossel -->
-                <button class="carousel-control prev" aria-label="Slide anterior" type="button" role="button">❮</button>
-                <button class="carousel-control next" aria-label="Próximo slide" type="button" role="button">❯</button>
-            </div>
-            <p>Este é um protótipo de design de interface web otimizado para plataformas de e-commerce, com foco na experiência do usuário e responsividade em diversos dispositivos.</p>
-            <a href="#" class="view-more">Ver Mais</a>
-        </article>
-    </div>
-</section>
+         <div class="hero-actions">
+         <a href="#contact" id="contactBtn" class="button-primary">
+            <span>Entrar em contacto</span>
+         </a>
+         </div>
+      </div>
 
+      <div class="hero-banner">
+         <img
+         src="./assets/images/newlogo2.png"
+         width="350"
+         height="350"
+         alt="Imagem de apresentação de Guilherme Porto"
+         />
+      </div>
+   </div>
+   </section>
 
-    </main>
+   <section id="about" class="about section container" aria-labelledby="about-title">
+   <h2 id="about-title" class="section-title typing-effect typing-static-about">
+      Sobre_
+   </h2>
 
-    <!-- Rodapé -->
-    <footer id="footer">
-        <div class="footer_area">
-            <!-- Links para redes sociais -->
-            <div class="footer_item area1">
-                <div class="footer_social">
-                    <a href="https://x.com/gbharbor" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/in/gbharbor" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Gbharbor" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.tiktok.com/@gbharbor" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/gbharbor/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@devharbor" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>              
+   <div id="postContainer"></div>
+   </section>
+
+   <section
+   id="projects"
+   class="projects-section section"
+   aria-labelledby="projects-title"
+   >
+   <div class="container">
+      <h2 id="projects-title" class="section-title typing-effect typing-static-projects">
+         Projetos_
+      </h2>
+
+      <div class="projects-grid">
+         <article class="project-card" data-project-id="1">
+         <h3 class="project-card-title">Aplicativo de Clima</h3>
+
+         <div class="carousel">
+            <div class="carousel-images">
+               <a
+               href="./projects/pro_weather/weather.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-image-link"
+               >
+               <img
+                  src="./projects/pro_weather/weather_assets/desktop2.png"
+                  alt="Aplicativo de Clima - imagem 1"
+                  class="project-image"
+               />
+               </a>
+
+               <a
+               href="./projects/pro_weather/weather.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-image-link"
+               >
+               <img
+                  src="./projects/pro_weather/weather_assets/desktop1.png"
+                  alt="Aplicativo de Clima - imagem 2"
+                  class="project-image"
+               />
+               </a>
             </div>
 
-            <!-- Direitos autorais -->
-            <div class="footer_item area2">
-                <div class="area_area2">
-                    2024 &COPY;gbharbor 
-                    <a href="https://www.linkedin.com/in/drportox/" target="_blank" id="saiba_mais">Saiba Mais</a>
-                </div>
+            <button
+               class="carousel-control prev"
+               aria-label="Slide anterior"
+               type="button"
+            >
+               ❮
+            </button>
+
+            <button
+               class="carousel-control next"
+               aria-label="Próximo slide"
+               type="button"
+            >
+               ❯
+            </button>
+         </div>
+
+         <p class="project-card-text">
+            Aplicação de clima desenvolvida para exibir informações meteorológicas
+            de forma simples, visual e responsiva.
+         </p>
+
+         <a
+            href="./projects/pro_weather/weather.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="view-more"
+         >
+            Ver mais
+         </a>
+         </article>
+
+         <article class="project-card" data-project-id="2">
+         <h3 class="project-card-title">OnlineShop</h3>
+
+         <div class="carousel">
+            <div class="carousel-images">
+               <a
+               href="./projects/pro_shop/index.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-image-link"
+               >
+               <img
+                  src="./projects/pro_shop/assets/img/shopic2.png"
+                  alt="OnlineShop - imagem 1"
+                  class="project-image"
+               />
+               </a>
+
+               <a
+               href="./projects/pro_shop/index.html"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-image-link"
+               >
+               <img
+                  src="./projects/pro_shop/assets/img/shopic1.png"
+                  alt="OnlineShop - imagem 2"
+                  class="project-image"
+               />
+               </a>
             </div>
 
-            <!-- Formulário de Contato -->
-            <div class="footer_item area3">
-                <form method="POST">
-                    <input type="text" name="nome" placeholder="Seu Nome" />
-                    <input type="text" name="whatsapp" placeholder="Seu WhatsApp" />
-                    <input type="email" name="email" placeholder="Seu E-mail" />
-                    <button class="btn">Me Chame!</button>                   
-                </form>
-            </div>
-        </div>
-    </footer>    
+            <button
+               class="carousel-control prev"
+               aria-label="Slide anterior"
+               type="button"
+            >
+               ❮
+            </button>
 
-    <!-- Botão para voltar ao topo -->
-    <button id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>    
+            <button
+               class="carousel-control next"
+               aria-label="Próximo slide"
+               type="button"
+            >
+               ❯
+            </button>
+         </div>
 
-    <!-- Script principal para interações -->
-    <script src="script.js"></script>
+         <p class="project-card-text">
+            Protótipo de interface para e-commerce com foco em experiência do
+            utilizador e responsividade em diferentes dispositivos.
+         </p>
+
+         <a
+            href="./projects/pro_shop/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="view-more"
+         >
+            Ver mais
+         </a>
+         </article>
+      </div>
+   </div>
+   </section>
+</main>
+
+<footer id="contact" class="footer">
+   <div class="footer-content container">
+   <div class="footer-column">
+      <div class="footer-social">
+         <a href="https://x.com/gbharbor" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+         <i class="fab fa-twitter"></i>
+         </a>
+         <a href="https://www.linkedin.com/in/gbharbor" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+         <i class="fab fa-linkedin"></i>
+         </a>
+         <a href="https://github.com/Gbharbor" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+         <i class="fab fa-github"></i>
+         </a>
+         <a href="https://www.tiktok.com/@infobarreto" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+         <i class="fab fa-tiktok"></i>
+         </a>
+         <a href="https://www.instagram.com/guiportopt/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+         <i class="fab fa-instagram"></i>
+         </a>
+      </div>
+   </div>
+
+   <div class="footer-column">
+      <div class="footer-copy">
+         2024 &copy; GBHarbor
+         <a
+         href="https://www.linkedin.com/in/gbharbor/"
+         target="_blank"
+         rel="noopener noreferrer"
+         id="saiba_mais"
+         >
+         Saiba mais
+         </a>
+      </div>
+   </div>
+
+   <div class="footer-column footer-form-wrapper">
+      <form method="POST" class="contact-form" aria-label="Formulário de contacto">
+         <label for="nome" class="sr-only">Seu nome</label>
+         <input id="nome" type="text" name="nome" placeholder="Seu nome" />
+
+         <label for="whatsapp" class="sr-only">Seu WhatsApp</label>
+         <input id="whatsapp" type="text" name="whatsapp" placeholder="Seu WhatsApp" />
+
+         <label for="email" class="sr-only">Seu e-mail</label>
+         <input id="email" type="email" name="email" placeholder="Seu e-mail" />
+
+         <button type="submit" class="btn">Me chame</button>
+      </form>
+   </div>
+   </div>
+</footer>
+
+<button id="backToTop" type="button" aria-label="Voltar ao topo">
+   <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="./script.js"></script>
 </body>
 </html>
