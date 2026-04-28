@@ -9,7 +9,7 @@ export const projects = [
         "devicon-css3-plain colored",
         "devicon-javascript-plain colored",
       ],
-      liveUrl: "#",
+      liveUrl: "/projects/flowsync/index.html",
     },
     {
       title: "Weather App",
@@ -20,6 +20,6 @@ export const projects = [
         "devicon-react-original colored",
         "devicon-javascript-plain colored",
       ],
-      liveUrl: "#",
+      liveUrl: "/projects/weather/index.html",
     },
   ];
