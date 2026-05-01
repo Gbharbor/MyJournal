@@ -24,11 +24,6 @@ export default function Hero() {
             Construo interfaces modernas, escaláveis e bem estruturadas.
           </h1>
 
-          <p className="hero-text">
-            Desenvolvedor focado em aplicações com React e TypeScript, com
-            atenção à organização de código, arquitetura e qualidade de UI.
-          </p>
-
           <div className="hero-stack">
             {technologies.map((tech, index) => (
               <i

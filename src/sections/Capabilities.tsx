@@ -33,9 +33,6 @@ const capabilities = [
     return (
       <section id="capabilities" className="capabilities section">
         <div className="container">
-          <h2 className="section-title typing-effect typing-static-technologies">
-            O que eu construo_
-          </h2>
   
           <div className="capabilities-grid">
             {capabilities.map((item) => (

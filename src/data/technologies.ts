@@ -1,11 +1,7 @@
 export const technologies = [
     {
-      name: "HTML",
-      icon: "devicon-html5-plain",
-    },
-    {
       name: "CSS",
-      icon: "devicon-css3-plain",
+      icon: "devicon-c-plain",
     },
     {
       name: "JavaScript",

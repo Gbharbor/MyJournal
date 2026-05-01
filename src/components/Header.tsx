@@ -4,17 +4,18 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="header" data-header>
-      <div className="container">
+      <div className="container header-container">
         <Link href="#home" className="logo" aria-label="Ir para o início">
           <Image
             src="/images/newlogo2.png"
             width={50}
             height={50}
             alt="Logo GBHarbor"
+            priority
           />
         </Link>
 
-        <nav className="navbar" data-navbar aria-label="Navegação principal">
+        <nav className="navbar" aria-label="Navegação principal">
           <ul className="navbar-list">
             <li>
               <Link href="#home" className="navbar-link">
@@ -23,9 +24,9 @@ export default function Header() {
             </li>
 
             <li>
-              <Link href="#technologies" className="navbar-link">
+            <Link href="#capabilities" className="navbar-link">
                 Tecnologias
-              </Link>
+            </Link>
             </li>
 
             <li>
@@ -40,35 +41,23 @@ export default function Header() {
               </Link>
             </li>
           </ul>
-
-          <div className="navbar-bottom">
-            <div className="profile-card">
-              <Image
-                src="/images/github_git_icon_145985.png"
-                width={30}
-                height={30}
-                alt="Ícone do GitHub"
-                className="profile-banner"
-              />
-
-              <a
-                href="https://github.com/Gbharbor"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <p>GitHub</p>
-              </a>
-            </div>
-          </div>
         </nav>
 
-        <button
-          className="menu-indicator"
-          type="button"
-          aria-label="Abrir ou fechar menu"
+        <a
+          href="https://github.com/Gbharbor"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="github-link"
+          aria-label="Ver GitHub"
         >
-          <span>&#9664;</span>
-        </button>
+          <Image
+            src="/images/github_git_icon_145985.png"
+            width={24}
+            height={24}
+            alt=""
+          />
+          <span>GitHub</span>
+        </a>
       </div>
     </header>
   );

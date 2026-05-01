@@ -10,6 +10,7 @@ export const projects = [
         "devicon-javascript-plain colored",
       ],
       liveUrl: "/projects/flowsync/index.html",
+      repoUrl: "https://github.com/gbharbor/flowsync",
     },
     {
       title: "Weather App",
@@ -21,5 +22,6 @@ export const projects = [
         "devicon-javascript-plain colored",
       ],
       liveUrl: "/projects/weather/index.html",
+      repoUrl: "https://github.com/gbharbor/weather-app",
     },
   ];
